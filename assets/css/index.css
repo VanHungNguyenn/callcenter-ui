@@ -10,6 +10,7 @@
     --color-gray-10: #3c4753;
     --color-gray-30: #5e6f82;
     --color-gray-50: #8998a9;
+    --color-gray-90: #e7eaee;
     --color-gray-100: #f9fafb;
 
     --color-green-05: #e8f7e9;
@@ -202,6 +203,8 @@ ul {
     display: flex;
     justify-content: space-between;
     margin-bottom: 2.4rem;
+
+    border-bottom: 1px solid var(--color-gray-90);
 }
 
 .content__data__groups {
