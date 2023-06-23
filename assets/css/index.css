@@ -1,9 +1,13 @@
+@import url(component.css);
+
 :root {
     --color-blue-50: #237ee7;
     --color-blue-40: #4794eb;
+    --color-blue-30: #6ca9ef;
 
     --color-bg-0: #fff;
     --color-bg-2: #f4f5f6;
+    --color-bg-4: #e8eaed;
 
     --color-gray-00: #2b323b;
     --color-gray-05: #2b323b;
@@ -43,7 +47,6 @@ html {
 body {
     font-size: 10px;
     color: var(--color-gray-50);
-    background-color: green;
 
     transition: all 0.3s ease-in-out;
 }
@@ -66,6 +69,17 @@ p {
 
 a {
     text-decoration: none;
+}
+
+.button-none {
+    color: var(--color-blue-50);
+
+    font-size: 12px;
+
+    font-weight: 500;
+    line-height: 130%;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 .custom-scrollbar {
@@ -104,7 +118,6 @@ a {
     padding: 40px 0;
     width: var(--width-sidebar);
     flex-direction: column;
-    min-height: 100vh;
     align-items: flex-start;
 
     flex-shrink: 0;
@@ -408,16 +421,6 @@ a {
     cursor: pointer;
 }
 
-.button-none {
-    color: var(--color-blue-50);
-
-    font-size: 12px;
-
-    font-weight: 500;
-    line-height: 130%;
-    text-transform: uppercase;
-}
-
 .infor__top--personal__edit {
     display: flex;
     justify-content: flex-end;
@@ -519,6 +522,12 @@ a {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    color: var(--color-gray-20);
+
+    font-size: 14px;
+
+    line-height: 140%;
 }
 
 .infor__history__item__status {
