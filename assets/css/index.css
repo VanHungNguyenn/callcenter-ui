@@ -20,7 +20,7 @@
     --color-green-50: #47c24e;
 
     --width--container: 1440px;
-    --width-sidebar: 160px;
+    --width-sidebar: 200px;
     --width-infor: 260px;
     --width-content: calc(100% - var(--width-sidebar) - var(--width-infor));
 }
@@ -97,6 +97,9 @@ a {
 }
 
 .sidebar {
+    margin: 24px 0 24px 24px;
+    border-radius: 16px;
+
     display: flex;
     padding: 40px 0;
     width: var(--width-sidebar);
@@ -117,6 +120,13 @@ a {
     padding: 0 16px;
 
     margin-bottom: 32px;
+}
+
+.sidebar_logo img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
 }
 
 .sidebar_logo h3 {
