@@ -1,0 +1,31 @@
+:root {
+    --font-family: "SF Pro", sans-serif;
+
+    --color-blue-20: #91bff3;
+    --color-blue-30: #6ca9ef;
+    --color-blue-40: #4794eb;
+    --color-blue-50: #237ee7;
+
+    --color-bg-0: #fff;
+    --color-bg-2: #f4f5f6;
+    --color-bg-4: #e8eaed;
+
+    --color-gray-00: #2b323b;
+    --color-gray-05: #2b323b;
+    --color-gray-10: #3c4753;
+    --color-gray-20: #4e5b6b;
+    --color-gray-30: #5e6f82;
+    --color-gray-50: #8998a9;
+    --color-gray-60: #a0adba;
+
+    --color-gray-90: #e7eaee;
+    --color-gray-100: #f9fafb;
+
+    --color-green-05: #e8f7e9;
+    --color-green-50: #47c24e;
+
+    --width-container: 1600px;
+    --width-sidebar: 190px;
+    --width-right: 260px;
+    --width-content: calc(100% - var(--width-sidebar) - var(--width-right));
+}

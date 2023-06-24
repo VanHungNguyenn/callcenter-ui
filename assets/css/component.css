@@ -1,8 +1,19 @@
-.container-button {
-    padding: 50px;
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
+.custom-scrollbar {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gray-90) var(--color-gray-100);
+}
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--color-gray-90);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-gray-90);
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background-color: inherit;
 }
 
 .button {
@@ -19,11 +30,12 @@
 
     box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.02), 0px 2px 12px 0px rgba(0, 0, 0, 0.03);
 
-    display: inline-flex;
+    display: flex;
     align-items: center;
     outline: none;
     border: none;
     line-height: 130%;
+    text-transform: uppercase;
 }
 
 .button:hover {
@@ -36,8 +48,8 @@
     stroke: var(--color-bg-0);
 }
 
-.button span {
-    margin-left: 6px;
+.button .svg_button {
+    margin-right: 6px;
 }
 
 .button.button--large {
@@ -74,7 +86,6 @@
     box-shadow: none;
     border: none;
     color: var(--color-blue-50);
-    text-decoration: underline;
 }
 
 .button.button--ghost:hover {
@@ -94,6 +105,39 @@
 
 .button.button--ghost:hover span {
     color: var(--color-blue-30);
+}
+
+.button__feature {
+    display: flex;
+    align-items: center;
+}
+
+.button__feature span {
+    display: flex;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 0;
+
+    color: var(--color-bg-0);
+    text-shadow: 0px 2.1861326694488525px 2.462858200073242px 0px rgba(23, 63, 164, 0.13),
+        0px 5.253580570220947px 5.918591022491455px 0px rgba(23, 63, 164, 0.19),
+        0px 9.8920259475708px 11.144181251525879px 0px rgba(23, 63, 164, 0.24),
+        0px 17.64568328857422px 19.879314422607422px 0px rgba(23, 63, 164, 0.29),
+        0px 33.004310607910156px 37.182071685791016px 0px rgba(23, 63, 164, 0.35),
+        0px 79px 89px 0px rgba(23, 63, 164, 0.48);
+    font-size: 16px;
+
+    font-weight: 700;
+    line-height: 150%;
+}
+
+.button__feature img {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    padding: 12px;
+    border-left: 1px solid var(--color-blue-20);
 }
 
 .tab {

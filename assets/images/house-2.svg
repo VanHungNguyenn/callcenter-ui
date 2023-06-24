@@ -1,12 +1,9 @@
-<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="vuesax/linear/house-2">
-<g id="vuesax/linear/house-2_2">
+<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="vuesax/bold/house-2">
+<g id="vuesax/bold/house-2_2">
 <g id="house-2">
-<path id="Vector" d="M1.66669 18.3333H18.3334" stroke="#5E6F82" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_2" d="M2.45831 18.3334L2.49998 8.30836C2.49998 7.80003 2.74165 7.31674 3.14165 7.00008L8.97498 2.4584C9.57498 1.99173 10.4167 1.99173 11.025 2.4584L16.8583 6.99173C17.2667 7.3084 17.5 7.7917 17.5 8.30836V18.3334" stroke="#5E6F82" stroke-width="1.5" stroke-miterlimit="10" stroke-linejoin="round"/>
-<path id="Vector_3" d="M12.9166 9.16675H7.08331C6.39165 9.16675 5.83331 9.72508 5.83331 10.4167V18.3334H14.1666V10.4167C14.1666 9.72508 13.6083 9.16675 12.9166 9.16675Z" stroke="#5E6F82" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_4" d="M8.33331 13.5417V14.7917" stroke="#5E6F82" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_5" d="M8.75 6.25H11.25" stroke="#5E6F82" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector" d="M10.1003 15.5C9.69028 15.5 9.35028 15.84 9.35028 16.25V17.75C9.35028 18.16 9.69028 18.5 10.1003 18.5C10.5103 18.5 10.8503 18.16 10.8503 17.75V16.25C10.8503 15.84 10.5103 15.5 10.1003 15.5Z" fill="#F9FAFB"/>
+<path id="Vector_2" d="M22.1003 21.25H21.1003V9.97997C21.1003 9.35997 20.8203 8.77997 20.3303 8.39997L13.3303 2.95997C12.6103 2.38997 11.5903 2.38997 10.8703 2.95997L3.87028 8.39997C3.38028 8.77997 3.10028 9.35997 3.10028 9.96997L3.05028 21.25H2.10028C1.69028 21.25 1.35028 21.58 1.35028 22C1.35028 22.41 1.69028 22.75 2.10028 22.75H22.1003C22.5103 22.75 22.8503 22.41 22.8503 22C22.8503 21.58 22.5103 21.25 22.1003 21.25ZM10.6003 6.74997H13.6003C14.0103 6.74997 14.3503 7.08997 14.3503 7.49997C14.3503 7.90997 14.0103 8.24997 13.6003 8.24997H10.6003C10.1903 8.24997 9.85028 7.90997 9.85028 7.49997C9.85028 7.08997 10.1903 6.74997 10.6003 6.74997ZM17.1003 21.25H7.10028V12.5C7.10028 11.67 7.77028 11 8.60028 11H15.6003C16.4303 11 17.1003 11.67 17.1003 12.5V21.25Z" fill="#F9FAFB"/>
 </g>
 </g>
 </g>
