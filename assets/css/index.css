@@ -1,9 +1,16 @@
-@import url(component.css);
+@import url(./component.css);
+
+@font-face {
+    font-family: "SF Pro";
+    src: url(../fonts/SF-Pro.ttf);
+}
 
 :root {
-    --color-blue-50: #237ee7;
-    --color-blue-40: #4794eb;
+    --font-family: "SF Pro", sans-serif;
+
     --color-blue-30: #6ca9ef;
+    --color-blue-40: #4794eb;
+    --color-blue-50: #237ee7;
 
     --color-bg-0: #fff;
     --color-bg-2: #f4f5f6;
@@ -38,7 +45,7 @@
 }
 
 html {
-    font-family: "Roboto Slab", sans-serif;
+    font-family: var(--font-family);
     font-size: 62.5%;
     font-weight: normal;
     line-height: 1.3;
@@ -49,6 +56,12 @@ body {
     color: var(--color-gray-50);
 
     transition: all 0.3s ease-in-out;
+}
+
+input,
+textarea,
+button {
+    font-family: var(--font-family);
 }
 
 ul {

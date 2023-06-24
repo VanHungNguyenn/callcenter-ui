@@ -7,22 +7,18 @@ jQuery('img.svg').each(function () {
 	jQuery.get(
 		imgURL,
 		function (data) {
-			// Get the SVG tag, ignore the rest
 			var $svg = jQuery(data).find('svg')
 
-			// Add replaced image's ID to the new SVG
 			if (typeof imgID !== 'undefined') {
 				$svg = $svg.attr('id', imgID)
 			}
-			// Add replaced image's classes to the new SVG
+
 			if (typeof imgClass !== 'undefined') {
 				$svg = $svg.attr('class', imgClass + ' replaced-svg')
 			}
 
-			// Remove any invalid XML tags as per http://validator.w3.org
 			$svg = $svg.removeAttr('xmlns:a')
 
-			// Check if the viewport is set, if the viewport is not set the SVG wont't scale.
 			if (
 				!$svg.attr('viewBox') &&
 				$svg.attr('height') &&
@@ -40,26 +36,26 @@ jQuery('img.svg').each(function () {
 	)
 })
 
-const navbarItems = document.querySelectorAll('.navbar__item')
+// const navbarItems = document.querySelectorAll('.navbar__item')
 
-navbarItems.forEach((item) => {
-	item.addEventListener('click', () => {
-		navbarItems.forEach((item) => {
-			item.classList.remove('active')
-		})
+// navbarItems.forEach((item) => {
+// 	item.addEventListener('click', () => {
+// 		navbarItems.forEach((item) => {
+// 			item.classList.remove('active')
+// 		})
 
-		item.classList.add('active')
-	})
-})
+// 		item.classList.add('active')
+// 	})
+// })
 
-const contentDataGroups = document.querySelectorAll('.content__data__group')
+// const contentDataGroups = document.querySelectorAll('.content__data__group')
 
-contentDataGroups.forEach((group) => {
-	group.addEventListener('click', () => {
-		contentDataGroups.forEach((group) => {
-			group.classList.remove('active')
-		})
+// contentDataGroups.forEach((group) => {
+// 	group.addEventListener('click', () => {
+// 		contentDataGroups.forEach((group) => {
+// 			group.classList.remove('active')
+// 		})
 
-		group.classList.add('active')
-	})
-})
+// 		group.classList.add('active')
+// 	})
+// })
