@@ -1,240 +1,718 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- add icon -->
-		<link rel="icon" href="./assets/images/logo.png" type="image/x-icon" />
-		<title>Callcenter v1.0</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-		<link rel="stylesheet" href="./assets/css/index.css" />
-	</head>
-	<body>
-		<div class="container">
-			<div class="left">
-				<div class="sidebar">
-					<div class="sidebar__logo">
-						<img src="./assets/images/logo.png" alt="" />
-						<h3>CALLCENTER</h3>
-						<span>v1.0</span>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- add icon -->
+	<link rel="icon" href="./assets/images/logo.png" type="image/x-icon" />
+	<title>Callcenter v1.0</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="./assets/css/index.css" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="left">
+			<div class="sidebar">
+				<div class="sidebar__logo">
+					<img src="./assets/images/logo.png" alt="" />
+					<h3>CALLCENTER</h3>
+					<span>v1.0</span>
+				</div>
+				<div class="navbar">
+					<div class="navbar__item active">
+						<div class="navbar__item--icon">
+							<div class="navbar__item--badge">1</div>
+							<img class="svg svg_button" src="./assets/images/house-2.svg" alt="" />
+						</div>
+						<div class="navbar__item--title">Dashboard</div>
 					</div>
-					<div class="navbar">
-						<div class="navbar__item active">
-							<div class="navbar__item--icon">
-								<div class="navbar__item--badge">1</div>
-								<img
-									class="svg svg_button"
-									src="./assets/images/house-2.svg"
-									alt=""
-								/>
-							</div>
-							<div class="navbar__item--title">Dashboard</div>
+					<div class="navbar__item">
+						<div class="navbar__item--icon">
+							<img class="svg svg_button" src="./assets/images/book.svg" alt="" />
 						</div>
-						<div class="navbar__item">
-							<div class="navbar__item--icon">
-								<img
-									class="svg svg_button"
-									src="./assets/images/book.svg"
-									alt=""
-								/>
-							</div>
-							<div class="navbar__item--title">Kịch bản</div>
+						<div class="navbar__item--title">Kịch bản</div>
+					</div>
+					<div class="navbar__item">
+						<div class="navbar__item--icon">
+							<img class="svg svg_button" src="./assets/images/setting-2.svg" alt="" />
 						</div>
-						<div class="navbar__item">
-							<div class="navbar__item--icon">
-								<img
-									class="svg svg_button"
-									src="./assets/images/setting-2.svg"
-									alt=""
-								/>
-							</div>
-							<div class="navbar__item--title">Cài đặt</div>
-						</div>
+						<div class="navbar__item--title">Cài đặt</div>
 					</div>
 				</div>
 			</div>
-			<div class="content"></div>
-			<div class="right">
-				<div class="infor">
-					<div class="infor__top">
-						<div class="infor__avatar">
-							<div class="infor__avatar--overlay">
-								<img src="./assets/images/avatar.png" alt="" />
+		</div>
+		<div class="center">
+			<div class="dashboard">
+				<div class="dashboard__title">Dashboard</div>
+				<div class="dashboard__chart">
+					<div class="chart dashboard__chart--item">
+						<div class="chart__title">Cuộc gọi trong ngày</div>
+						<div class="chart__comment">
+							<div class="chart__comment--item">
+								<div class="chart__comment--color color__green"></div>
+								<div class="chart__comment--content">
+									<span class="chart__comment--title">Đang chờ</span>
+									<span class="chart__comment--number">12</span>
+								</div>
+							</div>
+							<div class="chart__comment--item">
+								<div class="chart__comment--color color__blue"></div>
+								<div class="chart__comment--content">
+									<span class="chart__comment--title">Đã gọi</span>
+									<span class="chart__comment--number">5</span>
+								</div>
+							</div>
+							<div class="chart__comment--item">
+								<div class="chart__comment--color color__orange"></div>
+								<div class="chart__comment--content">
+									<span class="chart__comment--title">Bận</span>
+									<span class="chart__comment--number">7</span>
+								</div>
 							</div>
 						</div>
-						<div class="infor__detail">
-							<div class="infor__detail--item">
-								<div class="infor__detail--item__title">
-									Sinh ngày
-								</div>
-								<div class="infor__detail--item__content">
-									01/01/1999
-								</div>
-							</div>
-							<div class="infor__detail--item">
-								<div class="infor__detail--item__title">
-									Giới tính
-								</div>
-								<div class="infor__detail--item__content">
-									Nam
+						<div class="chart__content"></div>
+					</div>
+					<div class="chart dashboard__chart--item">
+						<div class="chart__title">Thời lượng</div>
+						<div class="chart__comment">
+							<div class="chart__comment--item">
+								<div class="chart__comment--color color__green"></div>
+								<div class="chart__comment--content">
+									<span class="chart__comment--title">Đang chờ</span>
+									<span class="chart__comment--number">12</span>
 								</div>
 							</div>
-							<div class="infor__detail--item">
-								<div class="infor__detail--item__title">
-									Địa chỉ
-								</div>
-								<div class="infor__detail--item__content">
-									28 Nguyen Tri Phương, phường 10, quận 10,
-									TPHCM
+							<div class="chart__comment--item">
+								<div class="chart__comment--color color__blue"></div>
+								<div class="chart__comment--content">
+									<span class="chart__comment--title">Đã gọi</span>
+									<span class="chart__comment--number">5</span>
 								</div>
 							</div>
-							<div class="infor__detail__socials">
-								<div class="infor__detail__social">
-									<img
-										class="svg svg_button"
-										src="./assets/images/facebook.svg"
-										alt=""
-									/>
-								</div>
-								<div class="infor__detail__social">
-									<img
-										class="svg svg_button"
-										src="./assets/images/google.svg"
-										alt=""
-									/>
+							<div class="chart__comment--item">
+								<div class="chart__comment--color color__orange"></div>
+								<div class="chart__comment--content">
+									<span class="chart__comment--title">Chờ</span>
+									<span class="chart__comment--number">7</span>
 								</div>
 							</div>
-							<button
-								class="infor__detail__button button button--ghost"
-							>
-								<span>Sửa</span>
+						</div>
+						<div class="chart__content"></div>
+					</div>
+					<div class="chart dashboard__chart--item">
+						<div class="chart__title">Nhà mạng</div>
+						<div class="chart__comment">
+							<div class="chart__comment--item">
+								<div class="chart__comment--color color__green"></div>
+								<div class="chart__comment--content">
+									<span class="chart__comment--title">Đang chờ</span>
+									<span class="chart__comment--number">12</span>
+								</div>
+							</div>
+							<div class="chart__comment--item">
+								<div class="chart__comment--color color__blue"></div>
+								<div class="chart__comment--content">
+									<span class="chart__comment--title">Đã gọi</span>
+									<span class="chart__comment--number">5</span>
+								</div>
+							</div>
+							<div class="chart__comment--item">
+								<div class="chart__comment--color color__orange"></div>
+								<div class="chart__comment--content">
+									<span class="chart__comment--title">Chờ</span>
+									<span class="chart__comment--number">7</span>
+								</div>
+							</div>
+						</div>
+						<div class="chart__content"></div>
+					</div>
+				</div>
+				<div class="dashboard__menu">
+					<div class="dashboard__tab">
+						<div id="group1" class="dashboard__tab--item tab active">
+							<span> Nhóm 1 </span>
+							<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+						</div>
+						<div id="group2" class="dashboard__tab--item tab">
+							<span> Nhóm 2 </span>
+							<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+						</div>
+						<div id="group3" class="dashboard__tab--item tab">
+							<span> Nhóm 3 </span>
+							<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+						</div>
+						<div class="tab tabNew" id="createNewGroup">
+							<span> Tạo nhóm </span>
+							<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+						</div>
+					</div>
+					<div class="dashboard__menu--group">
+						<div class="dashboard__menu--search">
+							<img class="svg svg_button" src="./assets/images/search-normal.svg" alt="" />
+							<input type="text" placeholder="Tìm kiếm" />
+						</div>
+						<div class="dashboard__menu--arrange">
+							<button class="button button--ghost">
+								sắp xếp
+							</button>
+						</div>
+						<div class="dashboard__menu--filter">
+							<button class="button button--ghost">
+								Lọc
 							</button>
 						</div>
 					</div>
-					<div class="infor__note">
-						<div class="infor__title">
-							<div class="infor__title--icon">
-								<img
-									class="svg svg_button"
-									src="./assets/images/menu-board.svg"
-									alt=""
-								/>
+				</div>
+				<div class="dashboard__list">
+					<div id="list1" class="dashboard__list--item list active">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>
+										<div class="col__checkbox">
+											<input type="checkbox" class="checkbox" id="checkboxAll" />
+											<span>Tất cả</span>
+										</div>
+									</th>
+									<th>
+										<div class="col__head">
+											<img class="svg svg_button" src="./assets/images/user.svg" alt="" />
+											<span>Tên</span>
+										</div>
+									</th>
+									<th>
+										<div class="col__head">
+											<img class="svg svg_button" src="./assets/images/call.svg" alt="" />
+											<span>SDT</span>
+										</div>
+									</th>
+									<th>
+										<div class="col__head">
+											<img class="svg svg_button" src="./assets/images/note-2.svg" alt="" />
+											<span>Ghi chú</span>
+										</div>
+									</th>
+									<th>
+										<div class="col__head">
+											<img class="svg svg_button" src="./assets/images/status.svg" alt="" />
+											<span>Tiến trình</span>
+										</div>
+									</th>
+									<th>
+										<div class="col__head">
+											<img class="svg svg_button" src="./assets/images/story.svg" alt="" />
+											<span>Trạng thái</span>
+										</div>
+									</th>
+									<th class="col__name col__button">
+										<button class="button">
+											<img class="svg svg_button" src="./assets/images/download.svg" alt="" />
+											<span>NHẬP DATA</span>
+										</button>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="col__checkbox">
+										<input type="checkbox" class="checkbox row_checkbox" />
+										<img src="./assets/images/avatar.png" alt="" />
+									</td>
+									<td class="td__name">Kristin Watson</td>
+									<td class="td__phone">
+										(225) 555-0118
+									</td>
+									<td class="td__note">
+										Fringilla Nullam
+									</td>
+									<td class="td__progress"></td>
+									<td>
+										<div class="status status--red">
+											<span class="status__icon"></span>
+											<span class="status__text">Đang bận</span>
+										</div>
+									</td>
+									<td class="td__button">
+										<div class="button button--gray">
+											<span> Chi tiết </span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="col__checkbox">
+										<input type="checkbox" class="checkbox row_checkbox" />
+										<img src="./assets/images/avatar.png" alt="" />
+									</td>
+									<td class="td__name">Kristin Watson</td>
+									<td class="td__phone">
+										(225) 555-0118
+									</td>
+									<td class="td__note">
+										Fringilla Nullam
+									</td>
+									<td class="td__progress"></td>
+									<td>
+										<div class="status status--red">
+											<span class="status__icon"></span>
+											<span class="status__text">Đang bận</span>
+										</div>
+									</td>
+									<td class="td__button">
+										<div class="button button--gray">
+											<span> Chi tiết </span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="col__checkbox">
+										<input type="checkbox" class="checkbox row_checkbox" />
+										<img src="./assets/images/avatar.png" alt="" />
+									</td>
+									<td class="td__name">Kristin Watson</td>
+									<td class="td__phone">
+										(225) 555-0118
+									</td>
+									<td class="td__note">
+										Fringilla Nullam
+									</td>
+									<td class="td__progress"></td>
+									<td>
+										<div class="status status--red">
+											<span class="status__icon"></span>
+											<span class="status__text">Đang bận</span>
+										</div>
+									</td>
+									<td class="td__button">
+										<div class="button button--gray">
+											<span> Chi tiết </span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="col__checkbox">
+										<input type="checkbox" class="checkbox row_checkbox" />
+										<img src="./assets/images/avatar.png" alt="" />
+									</td>
+									<td class="td__name">Kristin Watson</td>
+									<td class="td__phone">
+										(225) 555-0118
+									</td>
+									<td class="td__note">
+										Fringilla Nullam
+									</td>
+									<td class="td__progress"></td>
+									<td>
+										<div class="status status--red">
+											<span class="status__icon"></span>
+											<span class="status__text">Đang bận</span>
+										</div>
+									</td>
+									<td class="td__button">
+										<div class="button button--gray">
+											<span> Chi tiết </span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="col__checkbox">
+										<input type="checkbox" class="checkbox row_checkbox" />
+										<img src="./assets/images/avatar.png" alt="" />
+									</td>
+									<td class="td__name">Kristin Watson</td>
+									<td class="td__phone">
+										(225) 555-0118
+									</td>
+									<td class="td__note">
+										Fringilla Nullam
+									</td>
+									<td class="td__progress"></td>
+									<td>
+										<div class="status status--red">
+											<span class="status__icon"></span>
+											<span class="status__text">Đang bận</span>
+										</div>
+									</td>
+									<td class="td__button">
+										<div class="button button--gray">
+											<span> Chi tiết </span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="col__checkbox">
+										<input type="checkbox" class="checkbox row_checkbox" />
+										<img src="./assets/images/avatar.png" alt="" />
+									</td>
+									<td class="td__name">Kristin Watson</td>
+									<td class="td__phone">
+										(225) 555-0118
+									</td>
+									<td class="td__note">
+										Fringilla Nullam
+									</td>
+									<td class="td__progress"></td>
+									<td>
+										<div class="status status--red">
+											<span class="status__icon"></span>
+											<span class="status__text">Đang bận</span>
+										</div>
+									</td>
+									<td class="td__button">
+										<div class="button button--gray">
+											<span> Chi tiết </span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="col__checkbox">
+										<input type="checkbox" class="checkbox row_checkbox" />
+										<img src="./assets/images/avatar.png" alt="" />
+									</td>
+									<td class="td__name">Kristin Watson</td>
+									<td class="td__phone">
+										(225) 555-0118
+									</td>
+									<td class="td__note">
+										Fringilla Nullam
+									</td>
+									<td class="td__progress"></td>
+									<td>
+										<div class="status status--red">
+											<span class="status__icon"></span>
+											<span class="status__text">Đang bận</span>
+										</div>
+									</td>
+									<td class="td__button">
+										<div class="button button--gray">
+											<span> Chi tiết </span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="col__checkbox">
+										<input type="checkbox" class="checkbox row_checkbox" />
+										<img src="./assets/images/avatar.png" alt="" />
+									</td>
+									<td class="td__name">Kristin Watson</td>
+									<td class="td__phone">
+										(225) 555-0118
+									</td>
+									<td class="td__note">
+										Fringilla Nullam
+									</td>
+									<td class="td__progress"></td>
+									<td>
+										<div class="status status--red">
+											<span class="status__icon"></span>
+											<span class="status__text">Đang bận</span>
+										</div>
+									</td>
+									<td class="td__button">
+										<div class="button button--gray">
+											<span> Chi tiết </span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="col__checkbox">
+										<input type="checkbox" class="checkbox row_checkbox" />
+										<img src="./assets/images/avatar.png" alt="" />
+									</td>
+									<td class="td__name">Kristin Watson</td>
+									<td class="td__phone">
+										(225) 555-0118
+									</td>
+									<td class="td__note">
+										Fringilla Nullam
+									</td>
+									<td class="td__progress"></td>
+									<td>
+										<div class="status">
+											<span class="status__icon"></span>
+											<span class="status__text">Đang chờ</span>
+										</div>
+									</td>
+									<td class="td__button">
+										<div class="button button--gray">
+											<span> Chi tiết </span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="col__checkbox">
+										<input type="checkbox" class="checkbox row_checkbox" />
+										<img src="./assets/images/avatar.png" alt="" />
+									</td>
+									<td class="td__name">Kristin Watson</td>
+									<td class="td__phone">
+										(225) 555-0118
+									</td>
+									<td class="td__note">
+										Fringilla Nullam
+									</td>
+									<td class="td__progress"></td>
+									<td>
+										<div class="status status--green">
+											<span class="status__icon"></span>
+											<span class="status__text">Đang gọi</span>
+										</div>
+									</td>
+									<td class="td__button">
+										<div class="button button--gray">
+											<span> Chi tiết </span>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="list2" class="dashboard__list--item list">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>
+										<div class="col__checkbox">
+											<input type="checkbox" class="checkbox" id="checkboxAll" />
+											<span>Tất cả</span>
+										</div>
+									</th>
+									<th>
+										<div class="col__head">
+											<img class="svg svg_button" src="./assets/images/user.svg" alt="" />
+											<span>Tên</span>
+										</div>
+									</th>
+									<th>
+										<div class="col__head">
+											<img class="svg svg_button" src="./assets/images/call.svg" alt="" />
+											<span>SDT</span>
+										</div>
+									</th>
+									<th>
+										<div class="col__head">
+											<img class="svg svg_button" src="./assets/images/note-2.svg" alt="" />
+											<span>Ghi chú</span>
+										</div>
+									</th>
+									<th>
+										<div class="col__head">
+											<img class="svg svg_button" src="./assets/images/status.svg" alt="" />
+											<span>Tiến trình</span>
+										</div>
+									</th>
+									<th>
+										<div class="col__head">
+											<img class="svg svg_button" src="./assets/images/story.svg" alt="" />
+											<span>Trạng thái</span>
+										</div>
+									</th>
+									<th class="col__name col__button">
+										<button class="button">
+											<img class="svg svg_button" src="./assets/images/download.svg" alt="" />
+											<span>NHẬP DATA</span>
+										</button>
+									</th>
+								</tr>
+							</thead>
+						</table>
+						<div class="dashboard__addNew addNew">
+							<div class="addNew__icon">
+								<img class="svg svg_button" src="./assets/images/add.svg" alt="" />
 							</div>
-							<div class="infor__title--text">Ghi chú</div>
+							<span class="addNew__content">Thêm mới
 						</div>
-						<div class="infor__note--content">Mô tả ghi chú</div>
-						<div class="infor__note--button button button--ghost">
-							SỬA
+						<div class="fileUpload">
+							<div class="fileUpload__image">
+								<img src="./assets/images/filebrowsing.png" alt="" />
+							</div>
+							<div class="fileUpload__content">
+								<div class="fileUpload__content--title">
+									Kéo & thả file vào hoặc <span>duyệt tệp</span>
+								</div>
+								<div class="fileUpload__content--subtitle">
+									TXT, EXCEL or DOC. Tối đa dung lượng 2MB
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="infor__history">
-						<div class="infor__title">
-							<div class="infor__title--icon">
-								<img
-									class="svg svg_button"
-									src="./assets/images/timer-start.svg"
-									alt=""
-								/>
-							</div>
-							<div class="infor__title--text">Lịch sử ghi âm</div>
-						</div>
-						<div class="infor__history--list custom-scrollbar">
-							<div class="infor__history--item">
-								<div class="infor__history--item__number">
-									1
-								</div>
-								<div class="infor__history--item__name">
-									001.MP3
-								</div>
-								<div class="infor__history--item__date">
-									23/6/23
-								</div>
-								<div class="infor__history--item__button">
-									<img
-										class="svg svg_button"
-										src="./assets/images/Call history play item.svg"
-										alt=""
-									/>
-								</div>
-							</div>
-							<div class="infor__history--item">
-								<div class="infor__history--item__number">
-									2
-								</div>
-								<div class="infor__history--item__name">
-									001.MP3
-								</div>
-								<div class="infor__history--item__date">
-									23/6/23
-								</div>
-								<div class="infor__history--item__button">
-									<img
-										class="svg svg_button"
-										src="./assets/images/Call history play item.svg"
-										alt=""
-									/>
-								</div>
-							</div>
-							<div class="infor__history--item">
-								<div class="infor__history--item__number">
-									1
-								</div>
-								<div class="infor__history--item__name">
-									001.MP3
-								</div>
-								<div class="infor__history--item__date">
-									23/6/23
-								</div>
-								<div class="infor__history--item__button">
-									<img
-										class="svg svg_button"
-										src="./assets/images/Call history play item.svg"
-										alt=""
-									/>
-								</div>
-							</div>
-							<div class="infor__history--item">
-								<div class="infor__history--item__number">
-									1
-								</div>
-								<div class="infor__history--item__name">
-									001.MP3
-								</div>
-								<div class="infor__history--item__date">
-									23/6/23
-								</div>
-								<div class="infor__history--item__button">
-									<img
-										class="svg svg_button"
-										src="./assets/images/Call history play item.svg"
-										alt=""
-									/>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="infor__script">
-						<input
-							type="checkbox"
-							class="infor__script__checkbox checkbox"
-						/>
-						<div class="infor__title">
-							<div class="infor__title--icon">
-								<img
-									class="svg svg_button"
-									src="./assets/images/mobile-programming.svg"
-									alt=""
-								/>
-							</div>
-							<div class="infor__title--text">Kịch bản</div>
-						</div>
-						<div class="infor__script--dropdown"></div>
-					</div>
-					<div class="infor__run"></div>
+					<div id="list3" class="dashboard__list--item list"></div>
 				</div>
 			</div>
-
-			<script src="./assets/js/main.js"></script>
 		</div>
-	</body>
+		<div class="right">
+			<div class="infor">
+				<div class="infor__top">
+					<div class="infor__avatar">
+						<div class="infor__avatar--overlay">
+							<img src="./assets/images/avatar.png" alt="" />
+						</div>
+					</div>
+					<div class="infor__detail">
+						<div class="infor__detail--item">
+							<div class="infor__detail--item__title">
+								Sinh ngày
+							</div>
+							<div class="infor__detail--item__content">
+								01/01/1999
+							</div>
+						</div>
+						<div class="infor__detail--item">
+							<div class="infor__detail--item__title">
+								Giới tính
+							</div>
+							<div class="infor__detail--item__content">
+								Nam
+							</div>
+						</div>
+						<div class="infor__detail--item">
+							<div class="infor__detail--item__title">
+								Địa chỉ
+							</div>
+							<div class="infor__detail--item__content">
+								28 Nguyen Tri Phương, phường 10, quận 10,
+								TPHCM
+							</div>
+						</div>
+						<div class="infor__detail__socials">
+							<div class="infor__detail__social">
+								<img class="svg svg_button" src="./assets/images/facebook.svg" alt="" />
+							</div>
+							<div class="infor__detail__social">
+								<img class="svg svg_button" src="./assets/images/google.svg" alt="" />
+							</div>
+						</div>
+						<button class="infor__detail__button button button--ghost">
+							<span>Sửa</span>
+						</button>
+					</div>
+				</div>
+				<div class="infor__note">
+					<div class="infor__title">
+						<div class="infor__title--icon">
+							<img class="svg svg_button" src="./assets/images/menu-board.svg" alt="" />
+						</div>
+						<div class="infor__title--text">Ghi chú</div>
+					</div>
+					<div class="infor__note--content">Mô tả ghi chú</div>
+					<div class="infor__note--button button button--ghost">
+						SỬA
+					</div>
+				</div>
+				<div class="infor__history">
+					<div class="infor__title">
+						<div class="infor__title--icon">
+							<img class="svg svg_button" src="./assets/images/timer-start.svg" alt="" />
+						</div>
+						<div class="infor__title--text">Lịch sử ghi âm</div>
+					</div>
+					<div class="infor__history--list custom-scrollbar">
+						<div class="infor__history--item">
+							<div class="infor__history--item__number">
+								1
+							</div>
+							<div class="infor__history--item__name">
+								001.MP3
+							</div>
+							<div class="infor__history--item__date">
+								23/6/23
+							</div>
+							<div class="infor__history--item__button">
+								<img class="svg svg_button" src="./assets/images/Call history play item.svg" alt="" />
+							</div>
+						</div>
+						<div class="infor__history--item">
+							<div class="infor__history--item__number">
+								2
+							</div>
+							<div class="infor__history--item__name">
+								001.MP3
+							</div>
+							<div class="infor__history--item__date">
+								23/6/23
+							</div>
+							<div class="infor__history--item__button">
+								<img class="svg svg_button" src="./assets/images/Call history play item.svg" alt="" />
+							</div>
+						</div>
+						<div class="infor__history--item">
+							<div class="infor__history--item__number">
+								1
+							</div>
+							<div class="infor__history--item__name">
+								001.MP3
+							</div>
+							<div class="infor__history--item__date">
+								23/6/23
+							</div>
+							<div class="infor__history--item__button">
+								<img class="svg svg_button" src="./assets/images/Call history play item.svg" alt="" />
+							</div>
+						</div>
+						<div class="infor__history--item">
+							<div class="infor__history--item__number">
+								1
+							</div>
+							<div class="infor__history--item__name">
+								001.MP3
+							</div>
+							<div class="infor__history--item__date">
+								23/6/23
+							</div>
+							<div class="infor__history--item__button">
+								<img class="svg svg_button" src="./assets/images/Call history play item.svg" alt="" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="infor__script">
+					<input type="checkbox" class="infor__script__checkbox checkbox" id="script-checkbox" />
+					<div class="infor__title">
+						<div class="infor__title--icon">
+							<img class="svg svg_button" src="./assets/images/mobile-programming.svg" alt="" />
+						</div>
+						<div class="infor__title--text">Kịch bản</div>
+					</div>
+
+					<div class="dropdown infor__script--dropdown" id="script-dropdown">
+						<div class="dropdown__select">
+							<div class="dropdown__value">
+								<span>Kịch bản 1</span>
+							</div>
+							<div class="dropdown__icon">
+								<img class="svg svg_button" src="assets/images/arrow-down.svg" alt="" />
+							</div>
+						</div>
+						<div class="dropdown__list">
+							<div class="dropdown__item">
+								<span>Kịch bản 1</span>
+							</div>
+							<div class="dropdown__item">
+								<span>Kịch bản 2</span>
+							</div>
+							<div class="dropdown__item">
+								<span>Kịch bản 3</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="infor__run">
+					<div class="infor__run--content">
+						Gọi cho <span>Josephin Water</span>
+					</div>
+					<div class="infor__run--button button__feature">
+						<span>Chạy</span>
+						<div>
+							<img class="svg svg_button" src="./assets/images/play.svg" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="./assets/js/main.js"></script>
+	</div>
+</body>
+
 </html>

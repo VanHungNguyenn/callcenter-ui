@@ -1,5 +1,6 @@
 @import url(./declare.css);
 @import url(./component.css);
+@import url(./dashboard.css);
 
 @font-face {
     font-family: "SF Pro";
@@ -18,7 +19,7 @@ html {
     font-family: var(--font-family);
     font-size: 62.5%;
     font-weight: normal;
-    line-height: 1.3;
+    line-height: 140%;
 }
 
 body {
@@ -78,6 +79,7 @@ a {
     padding: 24px 16px;
     flex-direction: column;
     align-items: flex-start;
+    height: 100%;
 
     border-radius: 20px;
     background: var(--color-bg-0);
@@ -206,8 +208,12 @@ a {
     line-height: 160%;
 }
 
-.content {
-    width: var(--width-content);
+.center {
+    width: var(--width-dashboard);
+
+    display: flex;
+    padding: 24px;
+    flex: 1;
 }
 
 .right {
@@ -434,10 +440,33 @@ a {
     flex-direction: column;
     padding: 24px 16px;
     position: relative;
+
+    margin-bottom: 20px;
 }
 
 .infor__script__checkbox {
     position: absolute;
     top: 25px;
     left: 16px;
+}
+
+.infor__run {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+
+    padding: 24px 16px;
+}
+
+.infor__run--content {
+    color: var(--text-text-hi);
+    font-size: 14px;
+    font-weight: 510;
+    line-height: 140%;
+
+    margin-bottom: 8px;
+}
+
+.infor__run--content span {
+    font-weight: 700;
 }

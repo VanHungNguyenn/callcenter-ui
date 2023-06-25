@@ -48,14 +48,81 @@ navbarItems.forEach((item) => {
 	})
 })
 
-// const contentDataGroups = document.querySelectorAll('.content__data__group')
+var dropdowns = document.querySelectorAll('.dropdown')
 
-// contentDataGroups.forEach((group) => {
-// 	group.addEventListener('click', () => {
-// 		contentDataGroups.forEach((group) => {
-// 			group.classList.remove('active')
-// 		})
+document.addEventListener('click', function (event) {
+	// Lặp qua từng dropdown và kiểm tra xem target của sự kiện có nằm trong dropdown hay không
+	dropdowns.forEach(function (dropdown) {
+		var select = dropdown.querySelector('.dropdown__select')
+		var value = dropdown.querySelector('.dropdown__value')
+		var list = dropdown.querySelector('.dropdown__list')
 
-// 		group.classList.add('active')
-// 	})
-// })
+		// Nếu target không thuộc dropdown và dropdown đang mở, đóng dropdown
+		if (
+			!dropdown.contains(event.target) &&
+			dropdown.classList.contains('open')
+		) {
+			dropdown.classList.remove('open')
+		}
+	})
+})
+
+dropdowns.forEach(function (dropdown) {
+	var select = dropdown.querySelector('.dropdown__select')
+	var value = dropdown.querySelector('.dropdown__value')
+	var list = dropdown.querySelector('.dropdown__list')
+
+	select.addEventListener('click', function () {
+		dropdown.classList.toggle('open')
+	})
+
+	var items = dropdown.querySelectorAll('.dropdown__item')
+	items.forEach(function (item) {
+		item.addEventListener('click', function () {
+			var text = item.textContent
+			value.textContent = text
+			dropdown.classList.remove('open')
+		})
+	})
+})
+
+const scriptCheckbox = document.getElementById('script-checkbox')
+const scriptDropdown = document.getElementById('script-dropdown')
+
+scriptCheckbox.addEventListener('change', () => {
+	if (scriptCheckbox.checked) {
+		scriptDropdown.classList.add('disabled')
+	} else {
+		scriptDropdown.classList.remove('disabled')
+	}
+})
+
+$(document).ready(function () {
+	$('.row_checkbox').on('click', function () {
+		$(this).closest('tr').toggleClass('active')
+	})
+})
+
+$(document).ready(function () {
+	$('#checkboxAll').on('click', function () {
+		$('.row_checkbox').prop('checked', $(this).prop('checked'))
+		$('tr').toggleClass('active', $(this).prop('checked'))
+	})
+
+	$('.row_checkbox').on('click', function () {
+		var allChecked =
+			$('.row_checkbox:checked').length === $('.row_checkbox').length
+		$('#checkboxAll').prop('checked', allChecked)
+		$(this).closest('tr').toggleClass('active', $(this).prop('checked'))
+	})
+})
+
+$(document).ready(function () {
+	$('.dashboard__tab--item').on('click', function () {
+		var tabId = $(this).attr('id')
+		$('.dashboard__tab--item').removeClass('active')
+		$(this).addClass('active')
+		$('.dashboard__list--item').removeClass('active')
+		$('#' + tabId.replace('group', 'list')).addClass('active')
+	})
+})
