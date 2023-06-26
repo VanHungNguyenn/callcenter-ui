@@ -89,37 +89,26 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
-    width: 100%;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 }
 
 .sidebar__logo img {
-    width: 28px;
-    height: 28px;
-    flex-shrink: 0;
-    margin-right: 4px;
+    width: 40px;
+    height: 40px;
+
+    margin-bottom: 8px;
 }
 
 .sidebar__logo h3 {
-    color: var(--color-gray-10);
+    color: var(--text-text-hi);
 
     font-size: 12px;
 
     font-weight: 700;
     line-height: 124%;
     letter-spacing: 0.48px;
-    margin-right: 4px;
-}
-
-.sidebar__span {
-    color: var(--color-gray-05);
-
-    font-size: 10px;
-    font-weight: 510;
-    line-height: 160%;
-
-    opacity: 0.7;
 }
 
 .navbar {
@@ -132,10 +121,9 @@ a {
 .navbar__item {
     display: flex;
     flex-direction: column;
-    padding: 24px 16px;
-    justify-self: center;
+    padding: 24px 0;
     align-items: center;
-    border-radius: 12px;
+
     cursor: pointer;
 }
 
@@ -144,7 +132,7 @@ a {
     display: flex;
     align-items: center;
     border-radius: 8px;
-    background: var(--color-bg-2);
+    background: var(--surface-surface-me);
 
     margin-bottom: 8px;
 
@@ -152,8 +140,8 @@ a {
 }
 
 .navbar__item--icon img {
-    width: 24px;
-    height: 24px;
+    width: 52px;
+    height: 52px;
 }
 
 .navbar__item--icon .svg_button path {
@@ -171,10 +159,6 @@ a {
     text-transform: uppercase;
 }
 
-.navbar__item.active {
-    background: var(--color-bg-2);
-}
-
 .navbar__item.active .navbar__item--icon {
     background-color: var(--color-blue-50);
 }
@@ -182,6 +166,10 @@ a {
 .navbar__item.active .navbar__item--icon .svg_button path {
     fill: inherit;
     stroke: var(--color-gray-100);
+}
+
+.navbar__item.active .navbar__item--title {
+    color: var(--accent-brand);
 }
 
 .navbar__item--badge {

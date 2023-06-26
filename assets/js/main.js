@@ -197,41 +197,25 @@ $(document).ready(function () {
 const ctx1 = document.getElementById('myChart1')
 
 new Chart(ctx1, {
-	type: 'bar',
+	type: 'pie',
 	data: {
-		labels: ['', '', ''],
+		labels: ['Đang chờ', 'Đã gọi', 'Bận'],
 		datasets: [
 			{
-				label: '# of Votes',
+				label: '',
 				data: [12, 5, 7],
 				borderWidth: 1,
 				backgroundColor: ['#01CFC2', '#4B71F1', '#EF854B'],
-
-				barThickness: 25,
 			},
 		],
 	},
 	options: {
-		indexAxis: 'y',
 		scales: {
-			y: {
-				beginAtZero: true,
-			},
-			x: {
-				max: 20,
-				ticks: {
-					stepSize: 2,
-				},
-			},
+			y: {},
 		},
 		responsive: true,
 		plugins: {
-			legend: {
-				display: false,
-			},
-			tooltip: {
-				enabled: false, // <-- this option disables tooltips
-			},
+			legend: {},
 		},
 	},
 })
