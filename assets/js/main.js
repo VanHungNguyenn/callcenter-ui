@@ -51,13 +51,11 @@ navbarItems.forEach((item) => {
 var dropdowns = document.querySelectorAll('.dropdown')
 
 document.addEventListener('click', function (event) {
-	// Lặp qua từng dropdown và kiểm tra xem target của sự kiện có nằm trong dropdown hay không
 	dropdowns.forEach(function (dropdown) {
 		var select = dropdown.querySelector('.dropdown__select')
 		var value = dropdown.querySelector('.dropdown__value')
 		var list = dropdown.querySelector('.dropdown__list')
 
-		// Nếu target không thuộc dropdown và dropdown đang mở, đóng dropdown
 		if (
 			!dropdown.contains(event.target) &&
 			dropdown.classList.contains('open')
@@ -97,24 +95,92 @@ scriptCheckbox.addEventListener('change', () => {
 	}
 })
 
-$(document).ready(function () {
-	$('.row_checkbox').on('click', function () {
-		$(this).closest('tr').toggleClass('active')
+document.addEventListener('DOMContentLoaded', function () {
+	var rowCheckboxes = document.querySelectorAll('.row_checkbox')
+	var selectedNumber = document.getElementById('selectedNumber')
+	var dashboardSelected = document.querySelector('.dashboard__selected')
+	var checkboxAll = document.getElementById('checkboxAll')
+
+	function updateSelectedNumber() {
+		var selectedCount = document.querySelectorAll(
+			'.row_checkbox:checked'
+		).length
+
+		selectedNumber.textContent = selectedCount
+	}
+
+	function updateDashboardSelected() {
+		var selectedCount = document.querySelectorAll(
+			'.row_checkbox:checked'
+		).length
+
+		dashboardSelected.classList.toggle('active', selectedCount > 0)
+	}
+
+	rowCheckboxes.forEach(function (checkbox) {
+		checkbox.addEventListener('click', function () {
+			this.closest('tr').classList.toggle('active')
+			updateSelectedNumber()
+			updateDashboardSelected()
+		})
+	})
+
+	checkboxAll.addEventListener('click', function () {
+		var isChecked = this.checked
+		var rowCheckboxes = document.querySelectorAll('.row_checkbox')
+		var rows = document.querySelectorAll('tr')
+
+		rowCheckboxes.forEach(function (checkbox) {
+			checkbox.checked = isChecked
+		})
+
+		rows.forEach(function (row) {
+			row.classList.toggle('active', isChecked)
+		})
+
+		updateSelectedNumber()
+		updateDashboardSelected()
 	})
 })
 
-$(document).ready(function () {
-	$('#checkboxAll').on('click', function () {
-		$('.row_checkbox').prop('checked', $(this).prop('checked'))
-		$('tr').toggleClass('active', $(this).prop('checked'))
+window.addEventListener('DOMContentLoaded', function () {
+	var detailButton = document.querySelector('.infor__detail__button')
+	var inforTop = document.querySelector('.infor__top')
+	var inforUpdate = document.querySelector('.infor__update')
+	var cancelInforButton = document.getElementById('cancelInfor')
+	var updateInforButton = document.getElementById('updateInfor')
+
+	detailButton.addEventListener('click', function () {
+		inforTop.style.display = 'none' // Ẩn infor__top
+		inforUpdate.style.display = 'block' // Hiển thị infor__update
 	})
 
-	$('.row_checkbox').on('click', function () {
-		var allChecked =
-			$('.row_checkbox:checked').length === $('.row_checkbox').length
-		$('#checkboxAll').prop('checked', allChecked)
-		$(this).closest('tr').toggleClass('active', $(this).prop('checked'))
+	cancelInforButton.addEventListener('click', function () {
+		inforUpdate.style.display = 'none' // Ẩn infor__update
+		inforTop.style.display = 'block' // Hiển thị infor__top
 	})
+
+	updateInforButton.addEventListener('click', function () {
+		inforUpdate.style.display = 'none' // Ẩn infor__update
+		inforTop.style.display = 'block'
+	})
+})
+
+window.addEventListener('DOMContentLoaded', function () {
+	var inforTop = document.querySelector('.infor__top')
+	var inforUpdate = document.querySelector('.infor__update')
+
+	// Cập nhật chiều cao của infor__update khi trang được tải hoặc kích thước của cửa sổ thay đổi
+	function updateInforUpdateHeight() {
+		var inforTopHeight = inforTop.offsetHeight
+		inforUpdate.style.height = inforTopHeight + 'px'
+	}
+
+	// Gọi hàm cập nhật chiều cao khi trang được tải
+	updateInforUpdateHeight()
+
+	// Gọi hàm cập nhật chiều cao khi kích thước của cửa sổ thay đổi
+	window.addEventListener('resize', updateInforUpdateHeight)
 })
 
 $(document).ready(function () {
@@ -218,13 +284,13 @@ const ctx3 = document.getElementById('myChart3')
 new Chart(ctx3, {
 	type: 'bar',
 	data: {
-		labels: ['', '', ''],
+		labels: ['', '', '', ''],
 		datasets: [
 			{
 				label: '# of Votes',
-				data: [12, 5, 7],
+				data: [12, 5, 7, 14],
 				borderWidth: 1,
-				backgroundColor: ['#01CFC2', '#4B71F1', '#EF854B'],
+				backgroundColor: ['#01CFC2', '#4B71F1', '#EF854B', '#e24d28'],
 				barThickness: 25,
 			},
 		],

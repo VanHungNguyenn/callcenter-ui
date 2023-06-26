@@ -83,21 +83,21 @@
 							<div class="chart__comment--item">
 								<div class="chart__comment--color color__green"></div>
 								<div class="chart__comment--content">
-									<span class="chart__comment--title">Đang chờ</span>
+									<span class="chart__comment--title">Trên 1 phút</span>
 									<span class="chart__comment--number">12</span>
 								</div>
 							</div>
 							<div class="chart__comment--item">
 								<div class="chart__comment--color color__blue"></div>
 								<div class="chart__comment--content">
-									<span class="chart__comment--title">Đã gọi</span>
+									<span class="chart__comment--title">Dưới 1 phút</span>
 									<span class="chart__comment--number">5</span>
 								</div>
 							</div>
 							<div class="chart__comment--item">
 								<div class="chart__comment--color color__orange"></div>
 								<div class="chart__comment--content">
-									<span class="chart__comment--title">Chờ</span>
+									<span class="chart__comment--title">Nhỡ</span>
 									<span class="chart__comment--number">7</span>
 								</div>
 							</div>
@@ -112,22 +112,29 @@
 							<div class="chart__comment--item">
 								<div class="chart__comment--color color__green"></div>
 								<div class="chart__comment--content">
-									<span class="chart__comment--title">Đang chờ</span>
+									<span class="chart__comment--title">Viettel</span>
 									<span class="chart__comment--number">12</span>
 								</div>
 							</div>
 							<div class="chart__comment--item">
 								<div class="chart__comment--color color__blue"></div>
 								<div class="chart__comment--content">
-									<span class="chart__comment--title">Đã gọi</span>
+									<span class="chart__comment--title">Mobifone</span>
 									<span class="chart__comment--number">5</span>
 								</div>
 							</div>
 							<div class="chart__comment--item">
 								<div class="chart__comment--color color__orange"></div>
 								<div class="chart__comment--content">
-									<span class="chart__comment--title">Chờ</span>
+									<span class="chart__comment--title">Vinaphone</span>
 									<span class="chart__comment--number">7</span>
+								</div>
+							</div>
+							<div class="chart__comment--item">
+								<div class="chart__comment--color color__red"></div>
+								<div class="chart__comment--content">
+									<span class="chart__comment--title">Khác</span>
+									<span class="chart__comment--number">14</span>
 								</div>
 							</div>
 						</div>
@@ -174,6 +181,15 @@
 				</div>
 				<div class="dashboard__list">
 					<div id="list1" class="dashboard__list--item list active">
+						<div class="dashboard__selected">
+							<div class="dashboard__selected--content">
+								Đã chọn <span id="selectedNumber">0</span>
+							</div>
+							<div class="dashboard__selected--icon">
+
+								<img class="svg svg_button" src="./assets/images/trash.svg" alt="" />
+							</div>
+						</div>
 						<table class="table">
 							<thead>
 								<tr>
@@ -550,53 +566,93 @@
 		</div>
 		<div class="right">
 			<div class="infor">
-				<div class="infor__top">
-					<div class="infor__avatar">
-						<div class="infor__avatar--name">
-							Johnphin Water
+				<div class="infor__head">
+					<div class="infor__top">
+						<div class="infor__avatar">
+							<div class="infor__avatar--name">
+								Johnphin Water
+							</div>
+
+							<div class="overlay"></div>
+							<img src="./assets/images/avatar.png" alt="" />
+
 						</div>
-					
-						<div class="overlay"></div>
-						<img src="./assets/images/avatar.png" alt="" />
-					
+						<div class="infor__detail">
+							<div class="infor__detail--item">
+								<div class="infor__detail--item__title">
+									Sinh ngày
+								</div>
+								<div class="infor__detail--item__content">
+									01/01/1999
+								</div>
+							</div>
+							<div class="infor__detail--item">
+								<div class="infor__detail--item__title">
+									Giới tính
+								</div>
+								<div class="infor__detail--item__content">
+									Nam
+								</div>
+							</div>
+							<div class="infor__detail--item">
+								<div class="infor__detail--item__title">
+									SDT
+								</div>
+								<div class="infor__detail--item__content">
+									0256326585
+								</div>
+							</div>
+							<div class="infor__detail--item">
+								<div class="infor__detail--item__title">
+									Địa chỉ
+								</div>
+								<div class="infor__detail--item__content">
+									28 Nguyen Tri Phương, phường 10, quận 10,
+									TPHCM
+								</div>
+							</div>
+							<div class="infor__detail__socials">
+								<div class="infor__detail__social">
+									<img class="svg svg_button" src="./assets/images/facebook.svg" alt="" />
+								</div>
+								<div class="infor__detail__social">
+									<img class="svg svg_button" src="./assets/images/google.svg" alt="" />
+								</div>
+							</div>
+							<button class="infor__detail__button button button--ghost">
+								<span>Sửa</span>
+							</button>
+						</div>
 					</div>
-					<div class="infor__detail">
-						<div class="infor__detail--item">
-							<div class="infor__detail--item__title">
-								Sinh ngày
+					<div class="infor__update">
+						<div class="infor__update__container">
+							<div class="infor__title">
+								<div class="infor__title--icon">
+									<img class="svg svg_button" src="./assets/images/user-square.svg" alt="" />
+								</div>
+								<div class="infor__title--text">Thông tin</div>
 							</div>
-							<div class="infor__detail--item__content">
-								01/01/1999
+							<div class="infor__update--list">
+								<input class="infor__update--item" type="text" placeholder="Họ và tên" />
+								<input class="infor__update--item" type="date" placeholder="Ngày tháng năm sinh" />
+								<input class="infor__update--item" type="text" placeholder="Địa chỉ" />
+								<input class="infor__update--item" type="text" placeholder="Số điện thoại" />
+								<input class="infor__update--item" type="text" placeholder="Email" />
+		
 							</div>
-						</div>
-						<div class="infor__detail--item">
-							<div class="infor__detail--item__title">
-								Giới tính
-							</div>
-							<div class="infor__detail--item__content">
-								Nam
-							</div>
-						</div>
-						<div class="infor__detail--item">
-							<div class="infor__detail--item__title">
-								Địa chỉ
-							</div>
-							<div class="infor__detail--item__content">
-								28 Nguyen Tri Phương, phường 10, quận 10,
-								TPHCM
-							</div>
-						</div>
-						<div class="infor__detail__socials">
-							<div class="infor__detail__social">
-								<img class="svg svg_button" src="./assets/images/facebook.svg" alt="" />
-							</div>
-							<div class="infor__detail__social">
-								<img class="svg svg_button" src="./assets/images/google.svg" alt="" />
+							<div class="infor__update__buttons">
+								<button class="button button--shade"
+									id="cancelInfor"
+								>
+									<span>HỦY</span>
+								</button>
+								<button class="button"
+									id="updateInfor"
+								>
+									<span>LƯU</span>
+								</button>
 							</div>
 						</div>
-						<button class="infor__detail__button button button--ghost">
-							<span>Sửa</span>
-						</button>
 					</div>
 				</div>
 				<div class="infor__note">
@@ -607,7 +663,9 @@
 						<div class="infor__title--text">Ghi chú</div>
 					</div>
 					<div class="infor__note--content">Mô tả ghi chú</div>
-					<div class="infor__note--button button button--ghost">
+					<div
+						id="updateNote"
+					class="infor__note--button button button--ghost">
 						SỬA
 					</div>
 				</div>

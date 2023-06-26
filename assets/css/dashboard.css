@@ -88,6 +88,7 @@
 
 .dashboard__list--item {
     display: none;
+    position: relative;
 }
 
 .dashboard__list--item.active {
@@ -96,4 +97,53 @@
 
 .dashboard__addNew {
     margin-bottom: 24px;
+}
+
+.dashboard__selected {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+
+    border-radius: 4px;
+    background: var(--surface-surface-hi);
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 8px 0px rgba(0, 0, 0, 0.04),
+        0px 4px 16px -2px rgba(0, 0, 0, 0.08);
+
+    position: absolute;
+    left: 70px;
+    top: 12.977px;
+    cursor: pointer;
+    display: none;
+}
+
+.dashboard__selected.active {
+    display: flex;
+}
+
+.dashboard__selected--content {
+    display: flex;
+    padding: 8px 12px;
+    align-items: center;
+    border-right: 1px solid var(--accent-line);
+    color: var(--accent-brand);
+    font-size: 14px;
+
+    font-weight: 590;
+    line-height: 140%;
+}
+
+.dashboard__selected--content span {
+    margin-left: 4px;
+}
+
+.dashboard__selected--icon {
+    display: flex;
+    padding: 8px 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard__selected--icon img {
+    width: 16px;
+    height: 16px;
 }

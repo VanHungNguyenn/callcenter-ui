@@ -232,6 +232,12 @@ a {
     border-radius: 16px;
 }
 
+.infor__head {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--color-gray-90);
+}
+
 .infor__top {
     display: flex;
     flex-direction: column;
@@ -285,7 +291,6 @@ a {
     display: flex;
     flex-direction: column;
     padding: 24px 16px;
-    border-bottom: 1px solid var(--color-gray-90);
 }
 
 .infor__detail--item {
@@ -363,6 +368,63 @@ a {
 
     font-weight: 700;
     line-height: 140%;
+}
+
+.infor__update {
+    display: none;
+}
+
+.infor__update--list {
+    display: flex;
+    flex-direction: column;
+}
+
+.infor__update--item,
+.infor__note--content__update {
+    display: flex;
+    padding: 6px 8px;
+    align-items: center;
+
+    margin-bottom: 12px;
+    border-radius: 4px;
+
+    background: var(--surface-background);
+    border: 2px solid transparent;
+    outline: none;
+
+    color: var(--text-text-hi);
+
+    font-size: 14px;
+
+    font-weight: 510;
+    line-height: 140%;
+}
+
+.infor__update--item:focus,
+.infor__note--content__update:focus {
+    border: 2px solid var(--accent-brand);
+}
+
+.infor__note--content__update {
+    display: none;
+}
+
+.infor__update__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 16px 16px 16px;
+}
+
+.infor__update__buttons {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.infor__update__buttons button:not(:last-child) {
+    margin-right: 8px;
 }
 
 .infor__note {
