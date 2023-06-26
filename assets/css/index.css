@@ -241,14 +241,38 @@ a {
     padding: 8px;
     display: flex;
     height: 200px;
+    position: relative;
+
+    overflow: hidden;
 }
 
-.infor__avatar--overlay {
-    width: 100%;
-    border-radius: 16px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 53.99%, rgba(0, 0, 0, 0.5) 88.89%),
-        lightgray 50% / cover no-repeat;
+.infor__avatar--name {
     z-index: 2;
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    color: var(--color-gray-100);
+
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+
+    font-weight: 700;
+    line-height: 150%;
+}
+
+.overlay {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border-radius: 15px;
+
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 53.99%, rgba(0, 0, 0, 0.5) 88.89%);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .infor__avatar img {

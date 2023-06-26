@@ -9,6 +9,7 @@
 	<title>Callcenter v1.0</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="./assets/css/index.css" />
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
 </head>
 
 <body>
@@ -72,7 +73,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="chart__content"></div>
+						<div class="chart__content">
+							<canvas id="myChart1"></canvas>
+						</div>
 					</div>
 					<div class="chart dashboard__chart--item">
 						<div class="chart__title">Thời lượng</div>
@@ -99,7 +102,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="chart__content"></div>
+						<div class="chart__content">
+							<canvas id="myChart2"></canvas>
+						</div>
 					</div>
 					<div class="chart dashboard__chart--item">
 						<div class="chart__title">Nhà mạng</div>
@@ -126,7 +131,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="chart__content"></div>
+						<div class="chart__content">
+							<canvas id="myChart3"></canvas>
+						</div>
 					</div>
 				</div>
 				<div class="dashboard__menu">
@@ -545,9 +552,13 @@
 			<div class="infor">
 				<div class="infor__top">
 					<div class="infor__avatar">
-						<div class="infor__avatar--overlay">
-							<img src="./assets/images/avatar.png" alt="" />
+						<div class="infor__avatar--name">
+							Johnphin Water
 						</div>
+					
+						<div class="overlay"></div>
+						<img src="./assets/images/avatar.png" alt="" />
+					
 					</div>
 					<div class="infor__detail">
 						<div class="infor__detail--item">

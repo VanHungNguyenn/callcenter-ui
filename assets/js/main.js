@@ -126,3 +126,130 @@ $(document).ready(function () {
 		$('#' + tabId.replace('group', 'list')).addClass('active')
 	})
 })
+
+/* chart 1 */
+const ctx1 = document.getElementById('myChart1')
+
+new Chart(ctx1, {
+	type: 'bar',
+	data: {
+		labels: ['', '', ''],
+		datasets: [
+			{
+				label: '# of Votes',
+				data: [12, 5, 7],
+				borderWidth: 1,
+				backgroundColor: ['#01CFC2', '#4B71F1', '#EF854B'],
+
+				barThickness: 25,
+			},
+		],
+	},
+	options: {
+		indexAxis: 'y',
+		scales: {
+			y: {
+				beginAtZero: true,
+			},
+			x: {
+				max: 20,
+				ticks: {
+					stepSize: 2,
+				},
+			},
+		},
+		responsive: true,
+		plugins: {
+			legend: {
+				display: false,
+			},
+			tooltip: {
+				enabled: false, // <-- this option disables tooltips
+			},
+		},
+	},
+})
+
+/* chart 2 */
+const ctx2 = document.getElementById('myChart2')
+
+new Chart(ctx2, {
+	type: 'bar',
+	data: {
+		labels: ['', '', ''],
+		datasets: [
+			{
+				label: '# of Votes',
+				data: [12, 5, 7],
+				borderWidth: 1,
+				backgroundColor: ['#01CFC2', '#4B71F1', '#EF854B'],
+				barThickness: 25,
+			},
+		],
+	},
+	options: {
+		indexAxis: 'y',
+		scales: {
+			y: {
+				beginAtZero: true,
+			},
+			x: {
+				max: 20,
+				ticks: {
+					stepSize: 2,
+				},
+			},
+		},
+		responsive: true,
+		plugins: {
+			legend: {
+				display: false,
+			},
+			tooltip: {
+				enabled: false, // <-- this option disables tooltips
+			},
+		},
+	},
+})
+
+/* chart 1 */
+const ctx3 = document.getElementById('myChart3')
+
+new Chart(ctx3, {
+	type: 'bar',
+	data: {
+		labels: ['', '', ''],
+		datasets: [
+			{
+				label: '# of Votes',
+				data: [12, 5, 7],
+				borderWidth: 1,
+				backgroundColor: ['#01CFC2', '#4B71F1', '#EF854B'],
+				barThickness: 25,
+			},
+		],
+	},
+	options: {
+		indexAxis: 'y',
+		scales: {
+			y: {
+				beginAtZero: true,
+			},
+			x: {
+				max: 20,
+				ticks: {
+					stepSize: 2,
+				},
+			},
+		},
+		responsive: true,
+		plugins: {
+			legend: {
+				display: false,
+			},
+			tooltip: {
+				enabled: false, // <-- this option disables tooltips
+			},
+		},
+	},
+})
