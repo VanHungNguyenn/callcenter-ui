@@ -303,3 +303,22 @@ new Chart(ctx3, {
 		},
 	},
 })
+
+/* license */
+const buttonLicense = document.getElementById('buttonLicense')
+const license = buttonLicense.querySelector('.license')
+
+buttonLicense.addEventListener('click', function (event) {
+	event.stopPropagation()
+
+	license.classList.toggle('active')
+})
+
+document.addEventListener('click', function (event) {
+	if (
+		!buttonLicense.contains(event.target) &&
+		!license.contains(event.target)
+	) {
+		license.classList.remove('active')
+	}
+})

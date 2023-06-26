@@ -9,6 +9,12 @@
     width: 100%;
 }
 
+.dashboard__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
 .dashboard__title {
     color: var(--text-text-hi);
 
@@ -19,7 +25,128 @@
 
     text-transform: uppercase;
 
-    margin-bottom: 24px;
+    margin-right: 24px;
+}
+
+.dashboard__license {
+    display: flex;
+    padding: 4px 8px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background: var(--surface-surface-lo);
+    cursor: pointer;
+
+    position: relative;
+}
+
+.dashboard__license--title {
+    color: var(--text-text-hi);
+    font-size: 12px;
+
+    font-weight: 700;
+    line-height: 124%;
+    letter-spacing: 0.48px;
+
+    margin-right: 6px;
+}
+
+.dashboard__license--icon {
+    display: flex;
+    align-items: center;
+
+    width: 10px;
+    height: 10px;
+}
+
+.license {
+    display: none;
+    width: 378px;
+    padding: 20px;
+    flex-direction: column;
+
+    border-radius: 16px;
+    background: var(--color-surface-bg);
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 8px 0px rgba(0, 0, 0, 0.08);
+
+    position: absolute;
+    top: 0;
+    left: calc(100% + 4px);
+}
+
+.license.active {
+    display: flex;
+}
+
+.license__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--accent-line);
+}
+
+.license__title {
+    color: var(--text-text-hi);
+
+    font-size: 18px;
+
+    font-weight: 700;
+    line-height: 150%;
+    text-transform: uppercase;
+}
+
+.license__infor {
+    color: var(--text-text-hi);
+
+    font-size: 12px;
+
+    font-weight: 510;
+    line-height: 130%;
+}
+
+.license__body {
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.license__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.license--item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.license--item:last-child {
+    margin-bottom: 0;
+}
+
+.license--item__title {
+    width: 185px;
+    color: var(--text-text-low);
+
+    font-size: 14px;
+
+    font-weight: 510;
+    line-height: 140%;
+}
+
+.license--item__content {
+    flex: 1;
+    color: var(--text-text-hi);
+
+    font-size: 14px;
+
+    font-weight: 700;
+    line-height: 140%;
 }
 
 .dashboard__chart {
