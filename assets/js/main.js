@@ -1,3 +1,86 @@
+const pagination = document.getElementById('pagination')
+const totalItems = 85
+const currentPage = 3
+const itemsPerPage = 10
+const totalPages = Math.ceil(totalItems / itemsPerPage)
+
+function generatePagination(totalPages, currentPage) {
+	pagination.innerHTML = ''
+
+	let ul = document.createElement('ul')
+	ul.classList.add('pagination__content')
+
+	let liTag = ''
+	let activeLi
+	let beforePages = currentPage - 1
+	let afterPages = currentPage + 1
+
+	if (currentPage > 1) {
+		liTag += `<li class="pagination__btn pagination__prev" onclick="generatePagination(totalPages, ${
+			currentPage - 1
+		})">
+			<img
+				class="svg svg_button"
+				src="./assets/images/arrow-left.svg"
+				alt=""
+			/>
+		</li>`
+	}
+
+	if (currentPage > 2) {
+		liTag += `<li class="pagination__numb" onclick="generatePagination(totalPages, 1)">1</li>`
+
+		if (currentPage > 3) {
+			liTag += `<li class="pagination__dots">...</li>`
+		}
+	}
+
+	for (let pageLength = beforePages; pageLength <= afterPages; pageLength++) {
+		if (currentPage === pageLength) {
+			activeLi = 'pagination__active'
+		} else {
+			activeLi = ''
+		}
+
+		if (pageLength > 0 && pageLength <= totalPages) {
+			liTag += `<li class="pagination__numb ${activeLi}" onclick="generatePagination(totalPages, ${pageLength})">${pageLength}</li>`
+		}
+	}
+
+	if (currentPage < totalPages - 1) {
+		if (currentPage < totalPages - 2) {
+			liTag += `<li class="pagination__dots">...</li>`
+		}
+		liTag += `<li class="pagination__numb" onclick="generatePagination(totalPages, ${totalPages})">${totalPages}</li>`
+	}
+
+	if (currentPage < totalPages) {
+		liTag += `<li class="pagination__btn pagination__next" onclick="generatePagination(totalPages, ${
+			currentPage + 1
+		})">
+			<img
+				class="svg svg_button"
+				src="./assets/images/arrow-right.svg"
+				alt=""
+			/>
+		</li>`
+	}
+
+	ul.innerHTML = liTag
+
+	pagination.appendChild(ul)
+
+	const statisticsElement = document.createElement('div')
+	statisticsElement.classList.add('pagination__statistics')
+	const startRange = (currentPage - 1) * itemsPerPage + 1
+	const endRange = Math.min(startRange + itemsPerPage - 1, totalItems)
+	statisticsElement.innerHTML = `<span>${startRange}</span> - <span>${endRange}</span> of <span>${totalItems}</span> totals`
+
+	pagination.appendChild(statisticsElement)
+}
+
+generatePagination(totalPages, currentPage)
+
 jQuery('img.svg').each(function () {
 	var $img = jQuery(this)
 	var imgID = $img.attr('id')
@@ -196,26 +279,23 @@ $(document).ready(function () {
 /* chart 1 */
 const ctx1 = document.getElementById('myChart1')
 
-new Chart(ctx1, {
+a = new Chart(ctx1, {
 	type: 'pie',
 	data: {
 		labels: ['Đang chờ', 'Đã gọi', 'Bận'],
 		datasets: [
 			{
-				label: '',
+				label: 'Số lượng',
 				data: [12, 5, 7],
-				borderWidth: 1,
 				backgroundColor: ['#01CFC2', '#4B71F1', '#EF854B'],
 			},
 		],
 	},
 	options: {
-		scales: {
-			y: {},
-		},
-		responsive: true,
 		plugins: {
-			legend: {},
+			tooltip: {
+				enabled: false, // <-- this option disables tooltips
+			},
 		},
 	},
 })
@@ -320,5 +400,42 @@ document.addEventListener('click', function (event) {
 		!license.contains(event.target)
 	) {
 		license.classList.remove('active')
+	}
+})
+
+// click tab show popup dashboard
+const dashboardTabItems = document.querySelectorAll('.dashboard__tab--item')
+const dashboardTabPopup = document.querySelector('.dashboard__tab--popup')
+
+dashboardTabItems.forEach((item, index) => {
+	const dashboardTabIcon = item.querySelector('.dashboard__tab--icon')
+	const dashboardTab = item.closest('.dashboard__tab')
+
+	dashboardTabIcon.addEventListener('click', function () {
+		const parentPositionLeft = dashboardTab.getBoundingClientRect().left
+		const itemLeft = dashboardTabIcon.getBoundingClientRect().left
+
+		dashboardTabPopup.style.left = `${itemLeft - parentPositionLeft}px`
+
+		dashboardTabPopup.classList.toggle('active')
+	})
+})
+
+document.addEventListener('click', (event) => {
+	const targetElement = event.target
+
+	if (
+		!dashboardTabPopup.contains(targetElement) &&
+		!targetElement.classList.contains('svg_button')
+	) {
+		dashboardTabPopup.classList.remove('active')
+	}
+})
+
+dashboardTabPopup.addEventListener('click', (event) => {
+	const clickedItem = event.target
+
+	if (clickedItem.classList.contains('dashboard__tab--popup--item')) {
+		dashboardTabPopup.classList.remove('active')
 	}
 })

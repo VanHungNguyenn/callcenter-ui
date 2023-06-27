@@ -10,6 +10,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="./assets/css/index.css" />
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script> -->
 </head>
 
 <body>
@@ -18,7 +19,7 @@
 			<div class="sidebar">
 				<div class="sidebar__logo">
 					<img src="./assets/images/logo.png" alt="" />
-					<h3>CALLCENTER</h3>			
+					<h3>CALLCENTER</h3>
 				</div>
 				<div class="navbar">
 					<div class="navbar__item active">
@@ -40,7 +41,13 @@
 						</div>
 						<div class="navbar__item--title">Cài đặt</div>
 					</div>
+					<div class="navbar__bug">
+						<div class="navbar__bug--icon">
+							<img class="svg svg_button" src="./assets/images/bug.svg" alt="" />
+						</div>
+					</div>
 				</div>
+
 			</div>
 		</div>
 		<div class="center">
@@ -180,19 +187,33 @@
 					<div class="dashboard__tab">
 						<div id="group1" class="dashboard__tab--item tab active">
 							<span> Nhóm 1 </span>
-							<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+							<div class="dashboard__tab--icon">
+								<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+							</div>
 						</div>
+
 						<div id="group2" class="dashboard__tab--item tab">
 							<span> Nhóm 2 </span>
-							<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+							<div class="dashboard__tab--icon">
+								<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+							</div>
 						</div>
 						<div id="group3" class="dashboard__tab--item tab">
 							<span> Nhóm 3 </span>
-							<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+							<div class="dashboard__tab--icon">
+								<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+							</div>
 						</div>
 						<div class="tab tabNew" id="createNewGroup">
 							<span> Tạo nhóm </span>
-							<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+							<div class="dashboard__tab--icon">
+								<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+							</div>
+						</div>
+						<div class="dashboard__tab--popup">
+							<div class="dashboard__tab--popup--item">Rename</div>
+							<div class="dashboard__tab--popup--item">Duplicate</div>
+							<div class="dashboard__tab--popup--item">Delete</div>
 						</div>
 					</div>
 					<div class="dashboard__menu--group">
@@ -595,6 +616,18 @@
 					</div>
 					<div id="list3" class="dashboard__list--item list"></div>
 				</div>
+				<div class="dashboard__footer">
+					<div class="addNew">
+						<div class="addNew__icon">
+							<img class="svg svg_button" src="./assets/images/add.svg" alt="" />
+						</div>
+						<span class="addNew__content">Thêm mới
+					</div>
+
+					<div class="pagination" id="pagination">
+
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="right">
@@ -671,17 +704,13 @@
 								<input class="infor__update--item" type="text" placeholder="Địa chỉ" />
 								<input class="infor__update--item" type="text" placeholder="Số điện thoại" />
 								<input class="infor__update--item" type="text" placeholder="Email" />
-		
+
 							</div>
 							<div class="infor__update__buttons">
-								<button class="button button--shade"
-									id="cancelInfor"
-								>
+								<button class="button button--shade" id="cancelInfor">
 									<span>HỦY</span>
 								</button>
-								<button class="button"
-									id="updateInfor"
-								>
+								<button class="button" id="updateInfor">
 									<span>LƯU</span>
 								</button>
 							</div>
@@ -696,9 +725,7 @@
 						<div class="infor__title--text">Ghi chú</div>
 					</div>
 					<div class="infor__note--content">Mô tả ghi chú</div>
-					<div
-						id="updateNote"
-					class="infor__note--button button button--ghost">
+					<div id="updateNote" class="infor__note--button button button--ghost">
 						SỬA
 					</div>
 				</div>

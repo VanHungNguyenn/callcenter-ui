@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- add icon -->
+		<link rel="icon" href="./assets/images/logo.png" type="image/x-icon" />
+		<title>Callcenter v1.0</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<link rel="stylesheet" href="./assets/css/index.css" />
+		<link rel="stylesheet" href="./assets/css/component.css" />
+	</head>
+
+	<body>
+		<div class="dashboard__tab">
+			<div id="group1" class="dashboard__tab--item tab active">
+				<span> Nhóm 1 </span>
+				<img
+					class="svg svg_button"
+					src="./assets/images/arrow-down.svg"
+					alt=""
+				/>
+			</div>
+
+			<div id="group2" class="dashboard__tab--item tab">
+				<span> Nhóm 2 </span>
+				<div class="dashboard__tab--icon">
+					<img
+						class="svg svg_button"
+						src="./assets/images/arrow-down.svg"
+						alt=""
+					/>
+				</div>
+			</div>
+			<div id="group3" class="dashboard__tab--item tab">
+				<span> Nhóm 3 </span>
+				<div class="dashboard__tab--icon">
+					<img
+						class="svg svg_button"
+						src="./assets/images/arrow-down.svg"
+						alt=""
+					/>
+				</div>
+			</div>
+			<div class="tab tabNew" id="createNewGroup">
+				<span> Tạo nhóm </span>
+				<img
+					class="svg svg_button"
+					src="./assets/images/arrow-down.svg"
+					alt=""
+				/>
+			</div>
+			<div class="dashboard__tab--popup">
+				<div class="dashboard__tab--popup--item">Rename</div>
+				<div class="dashboard__tab--popup--item">Duplicate</div>
+				<div class="dashboard__tab--popup--item">Delete</div>
+			</div>
+		</div>
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.min.js"
+			integrity="sha512-mlz/Fs1VtBou2TrUkGzX4VoGvybkD9nkeXWJm3rle0DPHssYYx4j+8kIS15T78ttGfmOjH0lLaBXGcShaVkdkg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script src="./assets/js/main.js"></script>
+		<script>
+			const pagination = document.getElementById('pagination')
+			const totalItems = 85
+			const currentPage = 3
+			const itemsPerPage = 10
+			const totalPages = Math.ceil(totalItems / itemsPerPage)
+
+			function generatePagination(totalPages, currentPage) {
+				pagination.innerHTML = ''
+
+				let ul = document.createElement('ul')
+				ul.classList.add('pagination__content')
+
+				let liTag = ''
+				let activeLi
+				let beforePages = currentPage - 1
+				let afterPages = currentPage + 1
+
+				if (currentPage > 1) {
+					liTag += `<li class="pagination__btn pagination__prev" onclick="generatePagination(totalPages, ${
+						currentPage - 1
+					})">
+                        <img
+                            class="svg svg_button"
+                            src="./assets/images/arrow-left.svg"
+                            alt=""
+                        />
+                    </li>`
+				}
+
+				if (currentPage > 2) {
+					liTag += `<li class="pagination__numb" onclick="generatePagination(totalPages, 1)">1</li>`
+
+					if (currentPage > 3) {
+						liTag += `<li class="pagination__dots">...</li>`
+					}
+				}
+
+				for (
+					let pageLength = beforePages;
+					pageLength <= afterPages;
+					pageLength++
+				) {
+					if (currentPage === pageLength) {
+						activeLi = 'pagination__active'
+					} else {
+						activeLi = ''
+					}
+
+					if (pageLength > 0 && pageLength <= totalPages) {
+						liTag += `<li class="pagination__numb ${activeLi}" onclick="generatePagination(totalPages, ${pageLength})">${pageLength}</li>`
+					}
+				}
+
+				if (currentPage < totalPages - 1) {
+					if (currentPage < totalPages - 2) {
+						liTag += `<li class="pagination__dots">...</li>`
+					}
+					liTag += `<li class="pagination__numb" onclick="generatePagination(totalPages, ${totalPages})">${totalPages}</li>`
+				}
+
+				if (currentPage < totalPages) {
+					liTag += `<li class="pagination__btn pagination__next" onclick="generatePagination(totalPages, ${
+						currentPage + 1
+					})">
+                        <img
+                            class="svg svg_button"
+                            src="./assets/images/arrow-right.svg"
+                            alt=""
+                        />
+                    </li>`
+				}
+
+				ul.innerHTML = liTag
+
+				pagination.appendChild(ul)
+
+				// Tạo phần tử thống kê
+				const statisticsElement = document.createElement('div')
+				statisticsElement.classList.add('pagination__statistics')
+				const startRange = (currentPage - 1) * itemsPerPage + 1
+				const endRange = Math.min(
+					startRange + itemsPerPage - 1,
+					totalItems
+				)
+				statisticsElement.innerHTML = `<span>${startRange}</span> - <span>${endRange}</span> of <span>${totalItems}</span> totals`
+
+				// Thêm phần tử thống kê vào phần tử paginationElement
+				pagination.appendChild(statisticsElement)
+			}
+
+			generatePagination(totalPages, currentPage)
+		</script>
+	</body>
+</html>

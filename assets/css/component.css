@@ -457,7 +457,10 @@
 }
 
 .chart__content {
-    height: 200px;
+    height: 250px;
+
+    display: flex;
+    align-items: flex-end;
 }
 
 .status {
@@ -668,6 +671,7 @@ tr.active {
 }
 
 .addNew {
+    width: fit-content;
     display: flex;
     align-items: center;
 
@@ -699,4 +703,85 @@ tr.active {
     font-weight: 700;
     line-height: 130%;
     text-transform: uppercase;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.pagination__content {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 8px;
+}
+
+.pagination__content > li:not(:last-child) {
+    margin-right: 12px;
+}
+
+.pagination__numb,
+.pagination__dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+
+    font-weight: 510;
+    line-height: 140%;
+
+    cursor: pointer;
+}
+
+.pagination__numb:hover {
+    color: var(--accent-brand);
+}
+
+.pagination__active {
+    color: var(--accent-brand);
+}
+
+.pagination__prev {
+    display: flex;
+    align-items: center;
+
+    width: 16px;
+    height: 16px;
+}
+
+.pagination__next {
+    display: flex;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    margin-right: 0;
+}
+
+.pagination__prev,
+.pagination__next {
+    cursor: pointer;
+}
+
+.pagination__btn svg path {
+    fill: var(--text-text-low);
+}
+
+.pagination__btn:hover svg path {
+    fill: var(--accent-brand);
+}
+
+.pagination__statistics {
+    color: var(--color-gray-50);
+    font-size: 14px;
+
+    font-weight: 600;
+    line-height: 140%;
+}
+
+.pagination__statistics span {
+    color: var(--text-text-hi);
+    font-weight: 700;
 }
