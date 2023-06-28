@@ -141,9 +141,9 @@ a {
     display: flex;
     align-items: center;
     border-radius: 20px;
-    background: linear-gradient(135deg, rgba(190, 211, 250, 0.6) 2.43%, rgba(255, 255, 255, 0.11) 100%);
-    background-blend-mode: screen;
-    box-shadow: 5px 12px 20px 0px rgba(42, 142, 234, 0.52);
+
+    background: linear-gradient(135deg, rgba(190, 232, 250, 0.16) 2.43%, rgba(255, 255, 255, 0.06) 100%);
+    background-blend-mode: SCREEN;
     backdrop-filter: blur(10px);
 
     margin-bottom: 8px;
@@ -158,22 +158,23 @@ a {
 
 .navbar__item--icon .svg_button path {
     fill: inherit;
-    stroke: var(--color-gray-30);
+    stroke: var(--color-gray-100);
 }
 
 .navbar__item--title {
-    color: var(--color-bg-0);
-    opacity: 0.7;
-
+    color: #fff;
     font-size: 14px;
-
-    font-weight: 590;
+    opacity: 0.7;
+    font-weight: 700;
     line-height: 140%;
     text-transform: uppercase;
 }
 
 .navbar__item.active .navbar__item--icon {
-    background-color: var(--color-blue-50);
+    background: linear-gradient(135deg, rgba(190, 211, 250, 0.6) 2.43%, rgba(255, 255, 255, 0.11) 100%);
+    background-blend-mode: screen;
+    box-shadow: 5px 12px 20px 0px rgba(42, 142, 234, 0.52);
+    backdrop-filter: blur(10px);
 }
 
 .navbar__item.active .navbar__item--icon .svg_button path {
@@ -183,7 +184,7 @@ a {
 
 .navbar__item.active .navbar__item--title {
     color: var(--color-bg-0);
-    opacity: 1;
+    opacity: 2;
 }
 
 .navbar__bug {
@@ -227,11 +228,11 @@ a {
     gap: 4px;
 
     position: absolute;
-    right: -9.5px;
-    top: -9px;
+    right: -5px;
+    top: -5px;
 
     border-radius: 100px;
-    background: var(--color-green-50, #47c24e);
+    background: var(--color-green-50);
 
     color: var(--color-green-05);
 

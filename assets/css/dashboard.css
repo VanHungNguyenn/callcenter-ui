@@ -240,6 +240,10 @@
     padding-left: 6px;
 }
 
+.dashboard__tab--icon svg path {
+    stroke: var(--color-gray-50);
+}
+
 .dashboard__menu--group {
     display: flex;
     align-items: center;

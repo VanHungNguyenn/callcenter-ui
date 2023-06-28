@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<!-- add icon -->
-	<link rel="icon" href="./assets/images/logo.png" type="image/x-icon" />
+	<link rel="icon" href="assets/images/logo.png" type="image/x-icon" />
 	<title>Callcenter v1.0</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="./assets/css/index.css" />
@@ -18,32 +18,32 @@
 		<div class="left">
 			<div class="sidebar">
 				<div class="sidebar__logo">
-					<img src="./assets/images/logo.png" alt="" />
+					<img src="assets/images/logo.png" alt="" />
 					<h3>CALLCENTER</h3>
 				</div>
 				<div class="navbar">
 					<div class="navbar__item active">
 						<div class="navbar__item--icon">
 							<div class="navbar__item--badge">1</div>
-							<img class="svg svg_button" src="./assets/images/house-2.svg" alt="" />
+							<img class="svg svg_button" src="assets/images/house-2.svg" alt="" />
 						</div>
 						<div class="navbar__item--title">Dashboard</div>
 					</div>
 					<div class="navbar__item">
 						<div class="navbar__item--icon">
-							<img class="svg svg_button" src="./assets/images/book.svg" alt="" />
+							<img class="svg svg_button" src="assets/images/book.svg" alt="" />
 						</div>
 						<div class="navbar__item--title">Kịch bản</div>
 					</div>
 					<div class="navbar__item">
 						<div class="navbar__item--icon">
-							<img class="svg svg_button" src="./assets/images/setting-2.svg" alt="" />
+							<img class="svg svg_button" src="assets/images/setting-2.svg" alt="" />
 						</div>
 						<div class="navbar__item--title">Cài đặt</div>
 					</div>
-					<div class="navbar__bug">
+					<div class="navbar__bug" id="buttonReportBug">
 						<div class="navbar__bug--icon">
-							<img class="svg svg_button" src="./assets/images/bug.svg" alt="" />
+							<img class="svg svg_button" src="assets/images/bug.svg" alt="" />
 						</div>
 					</div>
 				</div>
@@ -59,7 +59,7 @@
 							License
 						</div>
 						<div class="dashboard__license--icon">
-							<img class="svg svg_button" src="./assets/images/arrow-right.svg" alt="" />
+							<img class="svg svg_button" src="assets/images/arrow-right.svg" alt="" />
 						</div>
 						<div class="license">
 							<div class="license__header">
@@ -189,26 +189,26 @@
 						<div id="group1" class="dashboard__tab--item tab active">
 							<span> Nhóm 1 </span>
 							<div class="dashboard__tab--icon">
-								<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+								<img class="svg svg_button" src="assets/images/arrow-down.svg" alt="" />
 							</div>
 						</div>
 
 						<div id="group2" class="dashboard__tab--item tab">
 							<span> Nhóm 2 </span>
 							<div class="dashboard__tab--icon">
-								<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+								<img class="svg svg_button" src="assets/images/arrow-down.svg" alt="" />
 							</div>
 						</div>
 						<div id="group3" class="dashboard__tab--item tab">
 							<span> Nhóm 3 </span>
 							<div class="dashboard__tab--icon">
-								<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+								<img class="svg svg_button" src="assets/images/arrow-down.svg" alt="" />
 							</div>
 						</div>
 						<div class="tab tabNew" id="createNewGroup">
 							<span> Tạo nhóm </span>
 							<div class="dashboard__tab--icon">
-								<img class="svg svg_button" src="./assets/images/arrow-down.svg" alt="" />
+								<img class="svg svg_button" src="assets/images/arrow-down.svg" alt="" />
 							</div>
 						</div>
 						<div class="dashboard__tab--popup">
@@ -219,16 +219,18 @@
 					</div>
 					<div class="dashboard__menu--group">
 						<div class="dashboard__menu--search">
-							<img class="svg svg_button" src="./assets/images/search-normal.svg" alt="" />
-							<input type="text" placeholder="Tìm kiếm" />
+							<div>
+								<img class="svg svg_button" src="assets/images/search-normal.svg" alt="" />
+							</div>
+							<input id="searchInput" type="text" placeholder="Tìm kiếm" />
 						</div>
 						<div class="dashboard__menu--arrange">
-							<button class="button button--ghost">
+							<button class="button button--ghost" id="arrangeButton">
 								sắp xếp
 							</button>
 						</div>
 						<div class="dashboard__menu--filter">
-							<button class="button button--ghost">
+							<button class="button button--ghost" id="filterButton">
 								Lọc
 							</button>
 						</div>
@@ -236,13 +238,15 @@
 				</div>
 				<div class="dashboard__list">
 					<div id="list1" class="dashboard__list--item list active">
-						<div class="dashboard__selected">
+						<div class="dashboard__selected"
+							id="deleteItems"
+						>
 							<div class="dashboard__selected--content">
 								Đã chọn <span id="selectedNumber">0</span>
 							</div>
 							<div class="dashboard__selected--icon">
 
-								<img class="svg svg_button" src="./assets/images/trash.svg" alt="" />
+								<img class="svg svg_button" src="assets/images/trash.svg" alt="" />
 							</div>
 						</div>
 						<table class="table">
@@ -256,37 +260,55 @@
 									</th>
 									<th>
 										<div class="col__head">
-											<img class="svg svg_button" src="./assets/images/user.svg" alt="" />
+											<div>
+												<img class="svg svg_button" src="assets/images/user.svg" alt="" />
+											</div>
 											<span>Tên</span>
 										</div>
 									</th>
 									<th>
 										<div class="col__head">
-											<img class="svg svg_button" src="./assets/images/call.svg" alt="" />
+											<div>
+												<img class="svg svg_button" src="assets/images/call.svg" alt="" />
+											</div>
 											<span>SDT</span>
 										</div>
 									</th>
 									<th>
 										<div class="col__head">
-											<img class="svg svg_button" src="./assets/images/note-2.svg" alt="" />
+											<div>
+												<img class="svg svg_button" src="assets/images/note-2.svg" alt="" />
+											</div>
 											<span>Ghi chú</span>
 										</div>
 									</th>
 									<th>
 										<div class="col__head">
-											<img class="svg svg_button" src="./assets/images/status.svg" alt="" />
+											<div>
+												<img class="svg svg_button" src="assets/images/status.svg" alt="" />
+											</div>
 											<span>Tiến trình</span>
 										</div>
 									</th>
 									<th>
 										<div class="col__head">
-											<img class="svg svg_button" src="./assets/images/story.svg" alt="" />
+											<div>
+												<img class="svg svg_button" src="assets/images/story.svg" alt="" />
+											</div>
 											<span>Trạng thái</span>
 										</div>
 									</th>
 									<th class="col__name col__button">
-										<button class="button">
-											<img class="svg svg_button" src="./assets/images/download.svg" alt="" />
+										<button class="button button--shade" id="exportButton">
+											<div>
+												<img class="svg svg_button" src="assets/images/export.svg" alt="" />
+											</div>
+											<span>Xuất DATA</span>
+										</button>
+										<button class="button" id="importButton">
+											<div>
+												<img class="svg svg_button" src="assets/images/download.svg" alt="" />
+											</div>
 											<span>NHẬP DATA</span>
 										</button>
 									</th>
@@ -296,7 +318,7 @@
 								<tr>
 									<td class="col__checkbox">
 										<input type="checkbox" class="checkbox row_checkbox" />
-										<img src="./assets/images/avatar.png" alt="" />
+										<img src="assets/images/avatar.png" alt="" />
 									</td>
 									<td class="td__name">Kristin Watson</td>
 									<td class="td__phone">
@@ -305,7 +327,32 @@
 									<td class="td__note">
 										Fringilla Nullam
 									</td>
-									<td class="td__progress"></td>
+									<td class="td__progress">
+										<div class="process">
+											<div class="process__item">
+												<div class="process__item--content">
+													Chờ
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+											<div class="process__item active">
+												<div class="process__item--content">
+													Đang gọi
+												</div>
+												<div class="process__item--bar">
+													<div class="process__item--bar--active"></div>
+												</div>
+											</div>
+											<div class="process__item">
+												<div class="process__item--content">
+													Kết thúc
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+										</div>
+									</td>
 									<td>
 										<div class="status status--red">
 											<span class="status__icon"></span>
@@ -321,7 +368,7 @@
 								<tr>
 									<td class="col__checkbox">
 										<input type="checkbox" class="checkbox row_checkbox" />
-										<img src="./assets/images/avatar.png" alt="" />
+										<img src="assets/images/avatar.png" alt="" />
 									</td>
 									<td class="td__name">Kristin Watson</td>
 									<td class="td__phone">
@@ -330,7 +377,32 @@
 									<td class="td__note">
 										Fringilla Nullam
 									</td>
-									<td class="td__progress"></td>
+									<td class="td__progress">
+										<div class="process">
+											<div class="process__item">
+												<div class="process__item--content">
+													Chờ
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+											<div class="process__item active">
+												<div class="process__item--content">
+													Đang gọi
+												</div>
+												<div class="process__item--bar">
+													<div class="process__item--bar--active"></div>
+												</div>
+											</div>
+											<div class="process__item">
+												<div class="process__item--content">
+													Kết thúc
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+										</div>
+									</td>
 									<td>
 										<div class="status status--red">
 											<span class="status__icon"></span>
@@ -346,7 +418,7 @@
 								<tr>
 									<td class="col__checkbox">
 										<input type="checkbox" class="checkbox row_checkbox" />
-										<img src="./assets/images/avatar.png" alt="" />
+										<img src="assets/images/avatar.png" alt="" />
 									</td>
 									<td class="td__name">Kristin Watson</td>
 									<td class="td__phone">
@@ -355,7 +427,32 @@
 									<td class="td__note">
 										Fringilla Nullam
 									</td>
-									<td class="td__progress"></td>
+									<td class="td__progress">
+										<div class="process">
+											<div class="process__item">
+												<div class="process__item--content">
+													Chờ
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+											<div class="process__item active">
+												<div class="process__item--content">
+													Đang gọi
+												</div>
+												<div class="process__item--bar">
+													<div class="process__item--bar--active"></div>
+												</div>
+											</div>
+											<div class="process__item">
+												<div class="process__item--content">
+													Kết thúc
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+										</div>
+									</td>
 									<td>
 										<div class="status status--red">
 											<span class="status__icon"></span>
@@ -371,7 +468,7 @@
 								<tr>
 									<td class="col__checkbox">
 										<input type="checkbox" class="checkbox row_checkbox" />
-										<img src="./assets/images/avatar.png" alt="" />
+										<img src="assets/images/avatar.png" alt="" />
 									</td>
 									<td class="td__name">Kristin Watson</td>
 									<td class="td__phone">
@@ -380,7 +477,32 @@
 									<td class="td__note">
 										Fringilla Nullam
 									</td>
-									<td class="td__progress"></td>
+									<td class="td__progress">
+										<div class="process">
+											<div class="process__item">
+												<div class="process__item--content">
+													Chờ
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+											<div class="process__item active">
+												<div class="process__item--content">
+													Đang gọi
+												</div>
+												<div class="process__item--bar">
+													<div class="process__item--bar--active"></div>
+												</div>
+											</div>
+											<div class="process__item">
+												<div class="process__item--content">
+													Kết thúc
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+										</div>
+									</td>
 									<td>
 										<div class="status status--red">
 											<span class="status__icon"></span>
@@ -396,7 +518,7 @@
 								<tr>
 									<td class="col__checkbox">
 										<input type="checkbox" class="checkbox row_checkbox" />
-										<img src="./assets/images/avatar.png" alt="" />
+										<img src="assets/images/avatar.png" alt="" />
 									</td>
 									<td class="td__name">Kristin Watson</td>
 									<td class="td__phone">
@@ -405,7 +527,32 @@
 									<td class="td__note">
 										Fringilla Nullam
 									</td>
-									<td class="td__progress"></td>
+									<td class="td__progress">
+										<div class="process">
+											<div class="process__item">
+												<div class="process__item--content">
+													Chờ
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+											<div class="process__item active">
+												<div class="process__item--content">
+													Đang gọi
+												</div>
+												<div class="process__item--bar">
+													<div class="process__item--bar--active"></div>
+												</div>
+											</div>
+											<div class="process__item">
+												<div class="process__item--content">
+													Kết thúc
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+										</div>
+									</td>
 									<td>
 										<div class="status status--red">
 											<span class="status__icon"></span>
@@ -421,7 +568,7 @@
 								<tr>
 									<td class="col__checkbox">
 										<input type="checkbox" class="checkbox row_checkbox" />
-										<img src="./assets/images/avatar.png" alt="" />
+										<img src="assets/images/avatar.png" alt="" />
 									</td>
 									<td class="td__name">Kristin Watson</td>
 									<td class="td__phone">
@@ -430,7 +577,32 @@
 									<td class="td__note">
 										Fringilla Nullam
 									</td>
-									<td class="td__progress"></td>
+									<td class="td__progress">
+										<div class="process">
+											<div class="process__item">
+												<div class="process__item--content">
+													Chờ
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+											<div class="process__item active">
+												<div class="process__item--content">
+													Đang gọi
+												</div>
+												<div class="process__item--bar">
+													<div class="process__item--bar--active"></div>
+												</div>
+											</div>
+											<div class="process__item">
+												<div class="process__item--content">
+													Kết thúc
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+										</div>
+									</td>
 									<td>
 										<div class="status status--red">
 											<span class="status__icon"></span>
@@ -446,7 +618,7 @@
 								<tr>
 									<td class="col__checkbox">
 										<input type="checkbox" class="checkbox row_checkbox" />
-										<img src="./assets/images/avatar.png" alt="" />
+										<img src="assets/images/avatar.png" alt="" />
 									</td>
 									<td class="td__name">Kristin Watson</td>
 									<td class="td__phone">
@@ -455,7 +627,32 @@
 									<td class="td__note">
 										Fringilla Nullam
 									</td>
-									<td class="td__progress"></td>
+									<td class="td__progress">
+										<div class="process">
+											<div class="process__item">
+												<div class="process__item--content">
+													Chờ
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+											<div class="process__item active">
+												<div class="process__item--content">
+													Đang gọi
+												</div>
+												<div class="process__item--bar">
+													<div class="process__item--bar--active"></div>
+												</div>
+											</div>
+											<div class="process__item">
+												<div class="process__item--content">
+													Kết thúc
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+										</div>
+									</td>
 									<td>
 										<div class="status status--red">
 											<span class="status__icon"></span>
@@ -471,7 +668,7 @@
 								<tr>
 									<td class="col__checkbox">
 										<input type="checkbox" class="checkbox row_checkbox" />
-										<img src="./assets/images/avatar.png" alt="" />
+										<img src="assets/images/avatar.png" alt="" />
 									</td>
 									<td class="td__name">Kristin Watson</td>
 									<td class="td__phone">
@@ -480,7 +677,32 @@
 									<td class="td__note">
 										Fringilla Nullam
 									</td>
-									<td class="td__progress"></td>
+									<td class="td__progress">
+										<div class="process">
+											<div class="process__item">
+												<div class="process__item--content">
+													Chờ
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+											<div class="process__item active">
+												<div class="process__item--content">
+													Đang gọi
+												</div>
+												<div class="process__item--bar">
+													<div class="process__item--bar--active"></div>
+												</div>
+											</div>
+											<div class="process__item">
+												<div class="process__item--content">
+													Kết thúc
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+										</div>
+									</td>
 									<td>
 										<div class="status status--red">
 											<span class="status__icon"></span>
@@ -496,7 +718,7 @@
 								<tr>
 									<td class="col__checkbox">
 										<input type="checkbox" class="checkbox row_checkbox" />
-										<img src="./assets/images/avatar.png" alt="" />
+										<img src="assets/images/avatar.png" alt="" />
 									</td>
 									<td class="td__name">Kristin Watson</td>
 									<td class="td__phone">
@@ -505,7 +727,32 @@
 									<td class="td__note">
 										Fringilla Nullam
 									</td>
-									<td class="td__progress"></td>
+									<td class="td__progress">
+										<div class="process">
+											<div class="process__item">
+												<div class="process__item--content">
+													Chờ
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+											<div class="process__item active">
+												<div class="process__item--content">
+													Đang gọi
+												</div>
+												<div class="process__item--bar">
+													<div class="process__item--bar--active"></div>
+												</div>
+											</div>
+											<div class="process__item">
+												<div class="process__item--content">
+													Kết thúc
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+										</div>
+									</td>
 									<td>
 										<div class="status">
 											<span class="status__icon"></span>
@@ -521,7 +768,7 @@
 								<tr>
 									<td class="col__checkbox">
 										<input type="checkbox" class="checkbox row_checkbox" />
-										<img src="./assets/images/avatar.png" alt="" />
+										<img src="assets/images/avatar.png" alt="" />
 									</td>
 									<td class="td__name">Kristin Watson</td>
 									<td class="td__phone">
@@ -530,7 +777,32 @@
 									<td class="td__note">
 										Fringilla Nullam
 									</td>
-									<td class="td__progress"></td>
+									<td class="td__progress">
+										<div class="process">
+											<div class="process__item">
+												<div class="process__item--content">
+													Chờ
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+											<div class="process__item active">
+												<div class="process__item--content">
+													Đang gọi
+												</div>
+												<div class="process__item--bar">
+													<div class="process__item--bar--active"></div>
+												</div>
+											</div>
+											<div class="process__item">
+												<div class="process__item--content">
+													Kết thúc
+												</div>
+												<div class="process__item--bar">
+												</div>
+											</div>
+										</div>
+									</td>
 									<td>
 										<div class="status status--green">
 											<span class="status__icon"></span>
@@ -558,37 +830,58 @@
 									</th>
 									<th>
 										<div class="col__head">
-											<img class="svg svg_button" src="./assets/images/user.svg" alt="" />
+											<div>
+												<img class="svg svg_button" src="assets/images/user.svg" alt="" />
+											</div>
 											<span>Tên</span>
 										</div>
 									</th>
 									<th>
 										<div class="col__head">
-											<img class="svg svg_button" src="./assets/images/call.svg" alt="" />
+											<div>
+												<img class="svg svg_button" src="assets/images/call.svg" alt="" />
+											</div>
 											<span>SDT</span>
 										</div>
 									</th>
 									<th>
 										<div class="col__head">
-											<img class="svg svg_button" src="./assets/images/note-2.svg" alt="" />
+											<div>
+
+												<img class="svg svg_button" src="assets/images/note-2.svg" alt="" />
+											</div>
 											<span>Ghi chú</span>
 										</div>
 									</th>
 									<th>
 										<div class="col__head">
-											<img class="svg svg_button" src="./assets/images/status.svg" alt="" />
+											<div>
+
+												<img class="svg svg_button" src="assets/images/status.svg" alt="" />
+											</div>
 											<span>Tiến trình</span>
 										</div>
 									</th>
 									<th>
 										<div class="col__head">
-											<img class="svg svg_button" src="./assets/images/story.svg" alt="" />
+											<div>
+
+												<img class="svg svg_button" src="assets/images/story.svg" alt="" />
+											</div>
 											<span>Trạng thái</span>
 										</div>
 									</th>
 									<th class="col__name col__button">
+										<button class="button button--shade">
+											<div>
+												<img class="svg svg_button" src="assets/images/export.svg" alt="" />
+											</div>
+											<span>Xuất DATA</span>
+										</button>
 										<button class="button">
-											<img class="svg svg_button" src="./assets/images/download.svg" alt="" />
+											<div>
+												<img class="svg svg_button" src="assets/images/download.svg" alt="" />
+											</div>
 											<span>NHẬP DATA</span>
 										</button>
 									</th>
@@ -597,13 +890,13 @@
 						</table>
 						<div class="dashboard__addNew addNew">
 							<div class="addNew__icon">
-								<img class="svg svg_button" src="./assets/images/add.svg" alt="" />
+								<img class="svg svg_button" src="assets/images/add.svg" alt="" />
 							</div>
 							<span class="addNew__content">Thêm mới
 						</div>
 						<div class="fileUpload">
 							<div class="fileUpload__image">
-								<img src="./assets/images/filebrowsing.png" alt="" />
+								<img src="assets/images/filebrowsing.png" alt="" />
 							</div>
 							<div class="fileUpload__content">
 								<div class="fileUpload__content--title">
@@ -620,7 +913,7 @@
 				<div class="dashboard__footer">
 					<div class="addNew">
 						<div class="addNew__icon">
-							<img class="svg svg_button" src="./assets/images/add.svg" alt="" />
+							<img class="svg svg_button" src="assets/images/add.svg" alt="" />
 						</div>
 						<span class="addNew__content">Thêm mới
 					</div>
@@ -641,7 +934,7 @@
 							</div>
 
 							<div class="overlay"></div>
-							<img src="./assets/images/avatar.png" alt="" />
+							<img src="assets/images/avatar.png" alt="" />
 
 						</div>
 						<div class="infor__detail">
@@ -680,13 +973,17 @@
 							</div>
 							<div class="infor__detail__socials">
 								<div class="infor__detail__social">
-									<img class="svg svg_button" src="./assets/images/facebook.svg" alt="" />
+									<a href="https://www.facebook.com/khanh797979" target="_blank">
+										<img class="svg svg_button" src="assets/images/facebook.svg" alt="" />
+									</a>
 								</div>
 								<div class="infor__detail__social">
-									<img class="svg svg_button" src="./assets/images/google.svg" alt="" />
+									<a href="https://www.facebook.com/khanh797979" target="_blank">
+										<img class="svg svg_button" src="assets/images/google.svg" alt="" />
+									</a>
 								</div>
 							</div>
-							<button class="infor__detail__button button button--ghost">
+							<button class="infor__detail__button button button--ghost" id="switchInforUpdate">
 								<span>Sửa</span>
 							</button>
 						</div>
@@ -695,7 +992,7 @@
 						<div class="infor__update__container">
 							<div class="infor__title">
 								<div class="infor__title--icon">
-									<img class="svg svg_button" src="./assets/images/user-square.svg" alt="" />
+									<img class="svg svg_button" src="assets/images/user-square.svg" alt="" />
 								</div>
 								<div class="infor__title--text">Thông tin</div>
 							</div>
@@ -721,7 +1018,7 @@
 				<div class="infor__note">
 					<div class="infor__title">
 						<div class="infor__title--icon">
-							<img class="svg svg_button" src="./assets/images/menu-board.svg" alt="" />
+							<img class="svg svg_button" src="assets/images/menu-board.svg" alt="" />
 						</div>
 						<div class="infor__title--text">Ghi chú</div>
 					</div>
@@ -733,7 +1030,7 @@
 				<div class="infor__history">
 					<div class="infor__title">
 						<div class="infor__title--icon">
-							<img class="svg svg_button" src="./assets/images/timer-start.svg" alt="" />
+							<img class="svg svg_button" src="assets/images/timer-start.svg" alt="" />
 						</div>
 						<div class="infor__title--text">Lịch sử ghi âm</div>
 					</div>
@@ -749,7 +1046,7 @@
 								23/6/23
 							</div>
 							<div class="infor__history--item__button">
-								<img class="svg svg_button" src="./assets/images/Call history play item.svg" alt="" />
+								<img class="svg svg_button" src="assets/images/Call history play item.svg" alt="" />
 							</div>
 						</div>
 						<div class="infor__history--item">
@@ -763,7 +1060,7 @@
 								23/6/23
 							</div>
 							<div class="infor__history--item__button">
-								<img class="svg svg_button" src="./assets/images/Call history play item.svg" alt="" />
+								<img class="svg svg_button" src="assets/images/Call history play item.svg" alt="" />
 							</div>
 						</div>
 						<div class="infor__history--item">
@@ -777,7 +1074,7 @@
 								23/6/23
 							</div>
 							<div class="infor__history--item__button">
-								<img class="svg svg_button" src="./assets/images/Call history play item.svg" alt="" />
+								<img class="svg svg_button" src="assets/images/Call history play item.svg" alt="" />
 							</div>
 						</div>
 						<div class="infor__history--item">
@@ -791,7 +1088,7 @@
 								23/6/23
 							</div>
 							<div class="infor__history--item__button">
-								<img class="svg svg_button" src="./assets/images/Call history play item.svg" alt="" />
+								<img class="svg svg_button" src="assets/images/Call history play item.svg" alt="" />
 							</div>
 						</div>
 					</div>
@@ -800,12 +1097,12 @@
 					<input type="checkbox" class="infor__script__checkbox checkbox" id="script-checkbox" />
 					<div class="infor__title">
 						<div class="infor__title--icon">
-							<img class="svg svg_button" src="./assets/images/mobile-programming.svg" alt="" />
+							<img class="svg svg_button" src="assets/images/mobile-programming.svg" alt="" />
 						</div>
 						<div class="infor__title--text">Kịch bản</div>
 					</div>
 
-					<div class="dropdown infor__script--dropdown" id="script-dropdown">
+					<div class="dropdown infor__script--dropdown disabled" id="script-dropdown">
 						<div class="dropdown__select">
 							<div class="dropdown__value">
 								<span>Kịch bản 1</span>
@@ -831,16 +1128,15 @@
 					<div class="infor__run--content">
 						Gọi cho <span>Josephin Water</span>
 					</div>
-					<div class="infor__run--button button__feature">
+					<div class="infor__run--button button__feature" id="runButton">
 						<span>Chạy</span>
 						<div>
-							<img class="svg svg_button" src="./assets/images/play.svg" alt="" />
+							<img class="svg svg_button" src="assets/images/play.svg" alt="" />
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
 		<script src="./assets/js/main.js"></script>
 	</div>
 </body>
