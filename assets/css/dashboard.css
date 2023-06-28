@@ -43,6 +43,7 @@
 .dashboard__license--title {
     color: var(--text-text-hi);
     font-size: 12px;
+    font-family: "SF Mono";
 
     font-weight: 700;
     line-height: 124%;
@@ -235,6 +236,8 @@
 .dashboard__tab--icon {
     display: flex;
     align-items: center;
+    height: 100%;
+    padding-left: 6px;
 }
 
 .dashboard__menu--group {

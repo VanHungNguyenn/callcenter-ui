@@ -245,6 +245,36 @@
 				<span>1</span> - <span>10</span> đến <span>100</span> người dùng
 			</div> -->
 		</div>
+		<div class="chart dashboard__chart--item">
+			<div class="chart__title">Cuộc gọi trong ngày</div>
+			<div class="chart__body">
+				<div class="chart__content">
+					<canvas id="myChart1"></canvas>
+				</div>
+				<div class="chart__comment">
+					<div class="chart__comment--item">
+						<div class="chart__comment--color color__green"></div>
+						<span class="chart__comment--title">Đang chờ</span>
+						<span class="chart__comment--number">12</span>
+					</div>
+					<div class="chart__comment--item">
+						<div class="chart__comment--color color__blue"></div>
+						<span class="chart__comment--title">Đã gọi</span>
+						<span class="chart__comment--number">5</span>
+					</div>
+					<div class="chart__comment--item">
+						<div class="chart__comment--color color__orange"></div>
+						<span class="chart__comment--title">Bận</span>
+						<span class="chart__comment--number">7</span>
+					</div>
+					<hr />
+					<div class="chart__comment--item">
+						<span class="chart__comment--title">Tổng cuộc gọi</span>
+						<span class="chart__comment--number">24</span>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 
@@ -252,175 +282,175 @@
 		integrity="sha512-mlz/Fs1VtBou2TrUkGzX4VoGvybkD9nkeXWJm3rle0DPHssYYx4j+8kIS15T78ttGfmOjH0lLaBXGcShaVkdkg=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-	<!-- <script src="./assets/js/main.js"></script> -->
+	<script src="./assets/js/main.js"></script>
 	<script>
 		console.log('Hello World')
-	const pagination = document.getElementById('pagination')
-const totalPages = 85
-const currentPage = 1
-const itemsPerPage = 10
+		const pagination = document.getElementById('pagination')
+		const totalPages = 85
+		const currentPage = 1
+		const itemsPerPage = 10
 
-function generationPagination(paginationElement, totalPages, currentPage, itemsPerPage) {
-  // Xóa bất kỳ nội dung hiện tại trong phần tử paginationElement
-  paginationElement.innerHTML = '';
+		function generationPagination(paginationElement, totalPages, currentPage, itemsPerPage) {
+			// Xóa bất kỳ nội dung hiện tại trong phần tử paginationElement
+			paginationElement.innerHTML = '';
 
-  // Tạo phần tử chứa nút phân trang
-  const contentElement = document.createElement('div');
-  contentElement.classList.add('pagination__content');
+			// Tạo phần tử chứa nút phân trang
+			const contentElement = document.createElement('div');
+			contentElement.classList.add('pagination__content');
 
-  // Tạo nút chuyển đến trang đầu
-  const firstButton = document.createElement('div');
-  firstButton.classList.add('pagination__item');
-  firstButton.innerText = '<<';
+			// Tạo nút chuyển đến trang đầu
+			const firstButton = document.createElement('div');
+			firstButton.classList.add('pagination__item');
+			firstButton.innerText = '<<';
 
-  // Xử lý sự kiện khi nhấp vào nút chuyển đến trang đầu
-  firstButton.addEventListener('click', function() {
-    if (currentPage !== 1) {
-      currentPage = 1;
-      generationPagination(paginationElement, totalPages, currentPage, itemsPerPage);
-      // Thực hiện hành động liên quan đến việc chuyển đến trang đầu
-    }
-  });
+			// Xử lý sự kiện khi nhấp vào nút chuyển đến trang đầu
+			firstButton.addEventListener('click', function () {
+				if (currentPage !== 1) {
+					currentPage = 1;
+					generationPagination(paginationElement, totalPages, currentPage, itemsPerPage);
+					// Thực hiện hành động liên quan đến việc chuyển đến trang đầu
+				}
+			});
 
-  contentElement.appendChild(firstButton);
+			contentElement.appendChild(firstButton);
 
-  // Tạo nút chuyển đến trang trước
-  const previousButton = document.createElement('div');
-  previousButton.classList.add('pagination__item');
-  previousButton.innerText = '<';
+			// Tạo nút chuyển đến trang trước
+			const previousButton = document.createElement('div');
+			previousButton.classList.add('pagination__item');
+			previousButton.innerText = '<';
 
-  // Xử lý sự kiện khi nhấp vào nút chuyển đến trang trước
-  previousButton.addEventListener('click', function() {
-    if (currentPage > 1) {
-      currentPage--;
-      generationPagination(paginationElement, totalPages, currentPage, itemsPerPage);
-      // Thực hiện hành động liên quan đến việc chuyển đến trang trước
-    }
-  });
+			// Xử lý sự kiện khi nhấp vào nút chuyển đến trang trước
+			previousButton.addEventListener('click', function () {
+				if (currentPage > 1) {
+					currentPage--;
+					generationPagination(paginationElement, totalPages, currentPage, itemsPerPage);
+					// Thực hiện hành động liên quan đến việc chuyển đến trang trước
+				}
+			});
 
-  contentElement.appendChild(previousButton);
+			contentElement.appendChild(previousButton);
 
-  // Tạo các nút phân trang
-  const paginationItems = document.createElement('div');
-  paginationItems.classList.add('pagination__items');
+			// Tạo các nút phân trang
+			const paginationItems = document.createElement('div');
+			paginationItems.classList.add('pagination__items');
 
-  if (totalPages <= 5) {
-    // Hiển thị tất cả các trang nếu tổng số trang <= 5
-    for (let page = 1; page <= totalPages; page++) {
-      const pageButton = createPageButton(page, currentPage);
-      paginationItems.appendChild(pageButton);
-    }
-  } else {
-    // Hiển thị các trang đầu, các trang ở giữa thu gọn bằng "..."
-    const firstPageButton = createPageButton(1, currentPage);
-    paginationItems.appendChild(firstPageButton);
+			if (totalPages <= 5) {
+				// Hiển thị tất cả các trang nếu tổng số trang <= 5
+				for (let page = 1; page <= totalPages; page++) {
+					const pageButton = createPageButton(page, currentPage);
+					paginationItems.appendChild(pageButton);
+				}
+			} else {
+				// Hiển thị các trang đầu, các trang ở giữa thu gọn bằng "..."
+				const firstPageButton = createPageButton(1, currentPage);
+				paginationItems.appendChild(firstPageButton);
 
-    const middlePages = calculateMiddlePages(currentPage, totalPages);
-    middlePages.forEach(page => {
-      const pageButton = createPageButton(page, currentPage);
-      paginationItems.appendChild(pageButton);
-    });
+				const middlePages = calculateMiddlePages(currentPage, totalPages);
+				middlePages.forEach(page => {
+					const pageButton = createPageButton(page, currentPage);
+					paginationItems.appendChild(pageButton);
+				});
 
-    const lastPageButton = createPageButton(totalPages, currentPage);
-    paginationItems.appendChild(lastPageButton);
-  }
+				const lastPageButton = createPageButton(totalPages, currentPage);
+				paginationItems.appendChild(lastPageButton);
+			}
 
-  contentElement.appendChild(paginationItems);
+			contentElement.appendChild(paginationItems);
 
-  // Tạo nút chuyển đến trang tiếp theo
-  const nextButton = document.createElement('div');
-  nextButton.classList.add('pagination__item');
-  nextButton.innerText = '>';
+			// Tạo nút chuyển đến trang tiếp theo
+			const nextButton = document.createElement('div');
+			nextButton.classList.add('pagination__item');
+			nextButton.innerText = '>';
 
-  // Xử lý sự kiện khi nhấp vào nút chuyển đến trang tiếp theo
-  nextButton.addEventListener('click', function() {
-    if (currentPage < totalPages) {
-      currentPage++;
-      generationPagination(paginationElement, totalPages, currentPage, itemsPerPage);
-      // Thực hiện hành động liên quan đến việc chuyển đến trang tiếp theo
-    }
-  });
+			// Xử lý sự kiện khi nhấp vào nút chuyển đến trang tiếp theo
+			nextButton.addEventListener('click', function () {
+				if (currentPage < totalPages) {
+					currentPage++;
+					generationPagination(paginationElement, totalPages, currentPage, itemsPerPage);
+					// Thực hiện hành động liên quan đến việc chuyển đến trang tiếp theo
+				}
+			});
 
-  contentElement.appendChild(nextButton);
+			contentElement.appendChild(nextButton);
 
-  // Tạo nút chuyển đến trang cuối
-  const lastButton = document.createElement('div');
-  lastButton.classList.add('pagination__item');
-  lastButton.innerText = '>>';
+			// Tạo nút chuyển đến trang cuối
+			const lastButton = document.createElement('div');
+			lastButton.classList.add('pagination__item');
+			lastButton.innerText = '>>';
 
-  // Xử lý sự kiện khi nhấp vào nút chuyển đến trang cuối
-  lastButton.addEventListener('click', function() {
-    if (currentPage !== totalPages) {
-      currentPage = totalPages;
-      generationPagination(paginationElement, totalPages, currentPage, itemsPerPage);
-      // Thực hiện hành động liên quan đến việc chuyển đến trang cuối
-    }
-  });
+			// Xử lý sự kiện khi nhấp vào nút chuyển đến trang cuối
+			lastButton.addEventListener('click', function () {
+				if (currentPage !== totalPages) {
+					currentPage = totalPages;
+					generationPagination(paginationElement, totalPages, currentPage, itemsPerPage);
+					// Thực hiện hành động liên quan đến việc chuyển đến trang cuối
+				}
+			});
 
-  contentElement.appendChild(lastButton);
+			contentElement.appendChild(lastButton);
 
-  // Thêm phần tử chứa nút phân trang vào phần tử paginationElement
-  paginationElement.appendChild(contentElement);
+			// Thêm phần tử chứa nút phân trang vào phần tử paginationElement
+			paginationElement.appendChild(contentElement);
 
-  // Tạo phần tử thống kê
-  const statisticsElement = document.createElement('div');
-  statisticsElement.classList.add('pagination__statistics');
-  const startRange = (currentPage - 1) * itemsPerPage + 1;
-  const endRange = Math.min(startRange + itemsPerPage - 1, totalUsers);
-  statisticsElement.innerHTML = `${startRange} - ${endRange} of ${totalUsers} totals`;
+			// Tạo phần tử thống kê
+			const statisticsElement = document.createElement('div');
+			statisticsElement.classList.add('pagination__statistics');
+			const startRange = (currentPage - 1) * itemsPerPage + 1;
+			const endRange = Math.min(startRange + itemsPerPage - 1, totalUsers);
+			statisticsElement.innerHTML = `${startRange} - ${endRange} of ${totalUsers} totals`;
 
-  // Thêm phần tử thống kê vào phần tử paginationElement
-  paginationElement.appendChild(statisticsElement);
-}
+			// Thêm phần tử thống kê vào phần tử paginationElement
+			paginationElement.appendChild(statisticsElement);
+		}
 
-function createPageButton(page, currentPage) {
-  const pageButton = document.createElement('div');
-  pageButton.classList.add('pagination__item');
-  pageButton.innerText = page;
+		function createPageButton(page, currentPage) {
+			const pageButton = document.createElement('div');
+			pageButton.classList.add('pagination__item');
+			pageButton.innerText = page;
 
-  if (page === currentPage) {
-    pageButton.classList.add('pagination__item--active');
-  }
+			if (page === currentPage) {
+				pageButton.classList.add('pagination__item--active');
+			}
 
-  pageButton.addEventListener('click', function() {
-    if (page !== currentPage) {
-      currentPage = page;
-      generationPagination(paginationElement, totalPages, currentPage, itemsPerPage);
-      // Thực hiện hành động liên quan đến việc chuyển đến trang được chọn
-    }
-  });
+			pageButton.addEventListener('click', function () {
+				if (page !== currentPage) {
+					currentPage = page;
+					generationPagination(paginationElement, totalPages, currentPage, itemsPerPage);
+					// Thực hiện hành động liên quan đến việc chuyển đến trang được chọn
+				}
+			});
 
-  return pageButton;
-}
+			return pageButton;
+		}
 
-function calculateMiddlePages(currentPage, totalPages) {
-  const middlePages = [];
+		function calculateMiddlePages(currentPage, totalPages) {
+			const middlePages = [];
 
-  if (currentPage <= 3) {
-    for (let page = 2; page <= Math.min(totalPages - 1, 4); page++) {
-      middlePages.push(page);
-    }
-  } else if (currentPage >= totalPages - 2) {
-    for (let page = Math.max(totalPages - 3, 2); page <= totalPages - 1; page++) {
-      middlePages.push(page);
-    }
-  } else {
-    middlePages.push(currentPage - 1, currentPage, currentPage + 1);
-  }
+			if (currentPage <= 3) {
+				for (let page = 2; page <= Math.min(totalPages - 1, 4); page++) {
+					middlePages.push(page);
+				}
+			} else if (currentPage >= totalPages - 2) {
+				for (let page = Math.max(totalPages - 3, 2); page <= totalPages - 1; page++) {
+					middlePages.push(page);
+				}
+			} else {
+				middlePages.push(currentPage - 1, currentPage, currentPage + 1);
+			}
 
-  if (middlePages[0] > 2) {
-    middlePages.unshift('...');
-  }
-  if (middlePages[middlePages.length - 1] < totalPages - 1) {
-    middlePages.push('...');
-  }
+			if (middlePages[0] > 2) {
+				middlePages.unshift('...');
+			}
+			if (middlePages[middlePages.length - 1] < totalPages - 1) {
+				middlePages.push('...');
+			}
 
-  return middlePages;
-}
+			return middlePages;
+		}
 
-	
 
-generationPagination(pagination, totalPages, currentPage, itemsPerPage)
+
+		generationPagination(pagination, totalPages, currentPage, itemsPerPage)
 	</script>
 </body>
 

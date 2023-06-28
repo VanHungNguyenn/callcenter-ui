@@ -7,6 +7,11 @@
     src: url(../fonts/SF-Pro.ttf);
 }
 
+@font-face {
+    font-family: "SF Mono";
+    src: url(../fonts/SF-Mono-Medium.otf);
+}
+
 *,
 *::after,
 *::before {
@@ -83,7 +88,9 @@ a {
     height: 100%;
 
     border-radius: 20px;
-    background: var(--color-bg-0);
+    /* background: var(--color-bg-0); */
+    background: linear-gradient(180deg, #4387ff 20.22%, #1b69f3 100%);
+    box-shadow: 0px 0px 12px 0px rgba(207, 220, 254, 0.68) inset;
 }
 
 .sidebar__logo {
@@ -103,7 +110,7 @@ a {
 }
 
 .sidebar__logo h3 {
-    color: var(--text-text-hi);
+    color: var(--color-gray-100);
 
     font-size: 12px;
 
@@ -133,15 +140,18 @@ a {
     padding: 12px;
     display: flex;
     align-items: center;
-    border-radius: 8px;
-    background: var(--surface-surface-me);
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(190, 211, 250, 0.6) 2.43%, rgba(255, 255, 255, 0.11) 100%);
+    background-blend-mode: screen;
+    box-shadow: 5px 12px 20px 0px rgba(42, 142, 234, 0.52);
+    backdrop-filter: blur(10px);
 
     margin-bottom: 8px;
 
     position: relative;
 }
 
-.navbar__item--icon img {
+.navbar__item--icon svg {
     width: 52px;
     height: 52px;
 }
@@ -152,7 +162,8 @@ a {
 }
 
 .navbar__item--title {
-    color: var(--color-gray-30);
+    color: var(--color-bg-0);
+    opacity: 0.7;
 
     font-size: 14px;
 
@@ -171,7 +182,8 @@ a {
 }
 
 .navbar__item.active .navbar__item--title {
-    color: var(--accent-brand);
+    color: var(--color-bg-0);
+    opacity: 1;
 }
 
 .navbar__bug {
@@ -188,13 +200,20 @@ a {
     display: flex;
     padding: 12px;
 
-    border-radius: 8px;
-    background: var(--surface-surface-me);
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(190, 232, 250, 0.15) 2.43%, rgba(255, 255, 255, 0.04) 100%);
+    background-blend-mode: screen;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-bg-0);
 }
 
-.navbar__bug--icon img {
+.navbar__bug--icon svg {
     width: 24px;
     height: 24px;
+}
+
+.navbar__bug--icon svg path {
+    stroke: var(--color-gray-100);
 }
 
 .navbar__item--badge {

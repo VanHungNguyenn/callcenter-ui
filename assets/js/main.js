@@ -280,7 +280,7 @@ $(document).ready(function () {
 const ctx1 = document.getElementById('myChart1')
 
 a = new Chart(ctx1, {
-	type: 'pie',
+	type: 'doughnut',
 	data: {
 		labels: ['Đang chờ', 'Đã gọi', 'Bận'],
 		datasets: [
@@ -293,10 +293,14 @@ a = new Chart(ctx1, {
 	},
 	options: {
 		plugins: {
+			legend: {
+				display: false,
+			},
 			tooltip: {
 				enabled: false, // <-- this option disables tooltips
 			},
 		},
+		cutout: 25,
 	},
 })
 
@@ -304,33 +308,18 @@ a = new Chart(ctx1, {
 const ctx2 = document.getElementById('myChart2')
 
 new Chart(ctx2, {
-	type: 'bar',
+	type: 'doughnut',
 	data: {
-		labels: ['', '', ''],
+		labels: ['Đang chờ', 'Đã gọi', 'Bận'],
 		datasets: [
 			{
-				label: '# of Votes',
+				label: 'Số lượng',
 				data: [12, 5, 7],
-				borderWidth: 1,
 				backgroundColor: ['#01CFC2', '#4B71F1', '#EF854B'],
-				barThickness: 25,
 			},
 		],
 	},
 	options: {
-		indexAxis: 'y',
-		scales: {
-			y: {
-				beginAtZero: true,
-			},
-			x: {
-				max: 20,
-				ticks: {
-					stepSize: 2,
-				},
-			},
-		},
-		responsive: true,
 		plugins: {
 			legend: {
 				display: false,
@@ -339,6 +328,7 @@ new Chart(ctx2, {
 				enabled: false, // <-- this option disables tooltips
 			},
 		},
+		cutout: 25,
 	},
 })
 
@@ -346,33 +336,18 @@ new Chart(ctx2, {
 const ctx3 = document.getElementById('myChart3')
 
 new Chart(ctx3, {
-	type: 'bar',
+	type: 'doughnut',
 	data: {
-		labels: ['', '', '', ''],
+		labels: ['Đang chờ', 'Đã gọi', 'Bận', 'Khác'],
 		datasets: [
 			{
-				label: '# of Votes',
-				data: [12, 5, 7, 14],
-				borderWidth: 1,
+				label: 'Số lượng',
+				data: [12, 5, 7, 7],
 				backgroundColor: ['#01CFC2', '#4B71F1', '#EF854B', '#e24d28'],
-				barThickness: 25,
 			},
 		],
 	},
 	options: {
-		indexAxis: 'y',
-		scales: {
-			y: {
-				beginAtZero: true,
-			},
-			x: {
-				max: 20,
-				ticks: {
-					stepSize: 2,
-				},
-			},
-		},
-		responsive: true,
 		plugins: {
 			legend: {
 				display: false,
@@ -381,6 +356,7 @@ new Chart(ctx3, {
 				enabled: false, // <-- this option disables tooltips
 			},
 		},
+		cutout: 25,
 	},
 })
 
