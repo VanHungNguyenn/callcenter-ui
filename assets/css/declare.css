@@ -41,8 +41,8 @@
     --color-green-05: #e8f7e9;
     --color-green-50: #47c24e;
 
-    --width-container: 1920px;
-    --width-sidebar: 150px;
-    --width-right: 260px;
+    /* --width-container: 1920px; */
+    --width-sidebar: 15rem;
+    --width-right: 26rem;
     --width-dashboard: calc(100% - var(--width-sidebar) - var(--width-right));
 }
