@@ -30,6 +30,7 @@ html {
 
 body {
     font-size: 10px;
+
     color: var(--color-gray-50);
 
     transition: all 0.3s ease-in-out;
@@ -269,6 +270,7 @@ a {
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid var(--color-gray-90);
+    height: 423px;
 }
 
 .infor__top {
