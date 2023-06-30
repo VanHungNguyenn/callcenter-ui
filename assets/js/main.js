@@ -459,3 +459,10 @@ dashboardTabPopup.addEventListener('click', (event) => {
 		dashboardTabPopup.classList.remove('active')
 	}
 })
+
+const toggleRightBar = document.getElementById('toggleRightBar')
+const rightBar = document.getElementById('rightBar')
+
+toggleRightBar.addEventListener('click', function () {
+	rightBar.classList.toggle('active')
+})

@@ -43,6 +43,7 @@
 
     /* --width-container: 1920px; */
     --width-sidebar: 15rem;
+    --width-sidebar-large: 13rem;
     --width-right: 26rem;
     --width-dashboard: calc(100% - var(--width-sidebar) - var(--width-right));
 }

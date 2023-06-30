@@ -13,7 +13,9 @@
 	<!-- <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script> -->
 </head>
 
-<body>
+<body
+class="custom-scrollbar"
+>
 	<div class="container">
 		<div class="left">
 			<div class="sidebar">
@@ -87,7 +89,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="dashboard__chart">
+				<div class="dashboard__chart custom-scrollbar">
 					<div class="chart dashboard__chart--item">
 						<div class="chart__title">Cuộc gọi trong ngày</div>
 						<div class="chart__body">
@@ -924,8 +926,15 @@
 				</div>
 			</div>
 		</div>
-		<div class="right">
+		<div class="right"
+			id="rightBar"
+		>
 			<div class="infor">
+				<div class="infor__switch"
+					id="toggleRightBar"
+				>
+					<img class="svg svg_button" src="assets/images/bar.svg" alt="" />
+				</div>
 				<div class="infor__head">
 					<div class="infor__top">
 						<div class="infor__avatar">

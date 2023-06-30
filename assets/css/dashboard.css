@@ -152,7 +152,7 @@
 
 .dashboard__chart {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
 
     margin-bottom: 2.4rem;
@@ -351,4 +351,10 @@
     justify-content: space-between;
 
     margin-top: auto;
+}
+
+@media screen and (max-width: 1660px) {
+    .dashboard__chart--item {
+        width: calc(100% / 3 - 0.5rem);
+    }
 }
