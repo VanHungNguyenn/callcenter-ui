@@ -353,6 +353,14 @@
     margin-top: auto;
 }
 
+.dashboard__loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
+}
+
 @media screen and (max-width: 1660px) {
     .dashboard__chart--item {
         width: calc(100% / 3 - 0.5rem);
